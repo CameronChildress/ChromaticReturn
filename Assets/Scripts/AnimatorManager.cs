@@ -15,7 +15,13 @@ public class AnimatorManager : MonoBehaviour
         vertical = Animator.StringToHash("Vertical");
     }
 
-    public void UpdateAnimatorValues(float horizontalMovement, float verticalMovement)
+    public void PlayTargetAnimation(string targetAnimation, bool isInteracting)
+    {
+        animator.SetBool("isInteracting", isInteracting);
+        animator.CrossFade(targetAnimation, 0.2f);
+    }
+
+    public void UpdateAnimatorValues(float horizontalMovement, float verticalMovement, bool isSprinting)
     {
             //Snapped Movement is a preference
             //This isnt needed, in .SetFloat use horizontalMovement & verticalMovement
@@ -23,7 +29,7 @@ public class AnimatorManager : MonoBehaviour
         float snappedHorizontal;
         float snappedVertical;
 
-        #region SnappedHorizontal Checks
+        #region Snapped Horizontal Checks
         if (horizontalMovement > 0 && horizontalMovement < 0.55f)
         {
             snappedHorizontal = 0.5f;
@@ -45,8 +51,7 @@ public class AnimatorManager : MonoBehaviour
             snappedHorizontal = 0;
         }
         #endregion
-
-        #region SnappedVertical Checks
+        #region Snapped Vertical Checks
         if (verticalMovement > 0 && verticalMovement < 0.55f)
         {
             snappedVertical = 0.5f;
@@ -68,6 +73,12 @@ public class AnimatorManager : MonoBehaviour
             snappedVertical = 0;
         }
         #endregion
+
+        if (isSprinting)
+        {
+            snappedHorizontal = horizontalMovement;
+            snappedVertical = 2f;
+        }
 
         //damp time or blend time
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
