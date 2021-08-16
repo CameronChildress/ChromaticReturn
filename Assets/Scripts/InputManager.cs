@@ -59,8 +59,11 @@ public class InputManager : MonoBehaviour
         horizontalInput = movementInput.x;
         verticalInput = movementInput.y;
 
-        cameraInputX = cameraInput.x;
-        cameraInputY = cameraInput.y;
+        cameraInputX = Mathf.Clamp(cameraInput.x, -1.25f, 1.25f);
+        cameraInputY = Mathf.Clamp(cameraInput.y, -1.25f, 1.25f);
+
+        //cameraInputX = cameraInput.x;
+        //cameraInputY = cameraInput.y;
 
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animatorManager.UpdateAnimatorValues(0, moveAmount, playerMovement.isSprinting);

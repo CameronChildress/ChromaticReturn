@@ -17,8 +17,8 @@ public class CameraManager : MonoBehaviour
     public float cameraCollisionOffSet = 0.2f; //How much the camera will jump off of objects its colliding with
     public float minimumCollisionOffSet = 0.2f;
     public float cameraFollowSpeed = 0.2f;
-    public float cameraLookSpeed = 2f;
-    public float cameraPivotSpeed = 2f;
+    public float cameraLookSpeed = 720f;
+    public float cameraPivotSpeed = 720f;
 
     public float lookAngle; //Camera look up and down
     public float pivotAngle; //Camera look left and right
@@ -51,8 +51,9 @@ public class CameraManager : MonoBehaviour
         Vector3 rotation;
         Quaternion targetRotation;
 
-        lookAngle += (inputManager.cameraInputX * cameraLookSpeed);
-        pivotAngle -= (inputManager.cameraInputY * cameraPivotSpeed);
+        lookAngle += (inputManager.cameraInputX * cameraLookSpeed * Time.deltaTime);
+        //cameraLookSpeed = Mathf.Clamp(cameraLookSpeed, -1, 1);
+        pivotAngle -= (inputManager.cameraInputY * cameraPivotSpeed * Time.deltaTime);
         pivotAngle = Mathf.Clamp(pivotAngle, minimumPivotAngle, maximumPivotAngle);
 
         rotation = Vector3.zero;
