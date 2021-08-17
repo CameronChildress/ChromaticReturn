@@ -22,12 +22,17 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Flags")]
     public bool isSprinting;
     public bool isGrounded;
+    public bool isJumping;
 
     [Header("Movement Speed")]
     public float walkingSpeed = 1.5f;
     public float runningSpeed = 5f;
     public float sprintingSpeed = 7f;
     public float rotationSpeed = 15f;
+
+    [Header("Jump Speed")]
+    public float gravityIntensity = 3f;
+    public float jumpHeight = -15f;
 
     private void Awake()
     {
@@ -51,6 +56,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
+        //shouldnt keep moving the player if mid jump
+        if (isJumping) return;
+
         moveDirection = cameraObject.forward * inputManager.verticalInput;
         moveDirection += cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -79,6 +87,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleRotation()
     {
+        //shouldnt rotate the player if mid jump
+        if (isJumping) return;
+
         Vector3 targetDirection = Vector3.zero;
 
         targetDirection = cameraObject.forward * inputManager.verticalInput;
@@ -103,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 rayCastOrigin = transform.position;
         rayCastOrigin.y += rayCastHeightOffSet;
 
-        if (!isGrounded)
+        if (!isGrounded && !isJumping)
         {
             if (!playerManager.isInteracting)
             {
@@ -128,6 +139,23 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+    }
+
+    public void HandleJumping()
+    {
+        if (isGrounded)
+        {
+            animatorManager.animator.SetBool("isJumping", true);
+            animatorManager.PlayTargetAnimation("Jump", false);
+
+            //Gets a smooth 'pop' off the ground and can change the values if needed
+            float jumpingVelocity = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            Vector3 playerVelocty = moveDirection;
+            //taking already existing movement velocity and adding the jump velocity
+            playerVelocty.y = jumpingVelocity;
+
+            rigidbody.velocity = playerVelocty;
         }
     }
 }
