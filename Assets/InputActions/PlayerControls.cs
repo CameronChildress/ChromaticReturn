@@ -233,6 +233,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CTRL"",
+                    ""type"": ""Button"",
+                    ""id"": ""e1678b5f-20a8-4007-9f25-9b90e3cf2693"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -268,6 +276,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0eb6432f-607b-4376-baba-ce14c92799f6"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CTRL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e77a51ca-5bf1-49d1-9599-ede3630dbb32"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CTRL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +312,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
         m_PlayerActions_B = m_PlayerActions.FindAction("B", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerActions_CTRL = m_PlayerActions.FindAction("CTRL", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -374,12 +405,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
     private readonly InputAction m_PlayerActions_B;
     private readonly InputAction m_PlayerActions_Jump;
+    private readonly InputAction m_PlayerActions_CTRL;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @B => m_Wrapper.m_PlayerActions_B;
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
+        public InputAction @CTRL => m_Wrapper.m_PlayerActions_CTRL;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -395,6 +428,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump;
+                @CTRL.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnCTRL;
+                @CTRL.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnCTRL;
+                @CTRL.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnCTRL;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -405,6 +441,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @CTRL.started += instance.OnCTRL;
+                @CTRL.performed += instance.OnCTRL;
+                @CTRL.canceled += instance.OnCTRL;
             }
         }
     }
@@ -418,5 +457,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnB(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnCTRL(InputAction.CallbackContext context);
     }
 }
