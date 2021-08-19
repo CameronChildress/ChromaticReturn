@@ -2374,7 +2374,7 @@ GameObject:
   - component: {fileID: 5679523763481718328}
   m_Layer: 6
   m_Name: LowPolyMan
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2426,6 +2426,9 @@ MonoBehaviour:
   verticalInput: 0
   horizontalInput: 0
   bButtonInput: 0
+  ctrlInput: 0
+  altInput: 0
+  jumpInput: 0
 --- !u!114 &1732939564859562330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2438,6 +2441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112af66b1cbf0674a8c389210038aa84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbody: {fileID: 0}
   inAirTimer: 0
   leapingVelocity: 3
   fallingVelocity: 35
@@ -2447,10 +2451,13 @@ MonoBehaviour:
     m_Bits: 1
   isSprinting: 0
   isGrounded: 1
+  isJumping: 0
   walkingSpeed: 1.5
   runningSpeed: 5
   sprintingSpeed: 7
   rotationSpeed: 15
+  gravityIntensity: 3
+  jumpHeight: -5
 --- !u!114 &1732939564859562331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2464,6 +2471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracting: 0
+  isUsingRootMotion: 0
 --- !u!114 &1312896913206802219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2476,6 +2484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12369e008eb3a07409747159d56f14b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!54 &1732939564859562333
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2503,9 +2512,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.2
-  m_Height: 1.65
+  m_Height: 1.6
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!95 &5679523763481718328
 Animator:
   serializedVersion: 3
