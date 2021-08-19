@@ -1745,8 +1745,8 @@ MonoBehaviour:
   cameraCollisionOffSet: 0.2
   minimumCollisionOffSet: 0.2
   cameraFollowSpeed: 0.2
-  cameraLookSpeed: 100
-  cameraPivotSpeed: 100
+  cameraLookSpeed: 150
+  cameraPivotSpeed: 150
   lookAngle: 0
   pivotAngle: 0
   minimumPivotAngle: -35
@@ -4968,6 +4968,8 @@ GameObject:
   - component: {fileID: 977136846559388647}
   - component: {fileID: 7135248862377840285}
   - component: {fileID: 5257328069957880063}
+  - component: {fileID: 4311111494009410037}
+  - component: {fileID: 4311111494009410038}
   m_Layer: 0
   m_Name: SkeletonEnemy
   m_TagString: Untagged
@@ -4975,6 +4977,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4311111494009410037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311111494009410036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccc16325e12daf4688bc8c2c3c500ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 20
+  minimumDetectionAngle: -50
+  maximumDetectionAngle: 50
+--- !u!114 &4311111494009410038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311111494009410036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d630ddc9ae80d841904e6d1841be472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &4336603855256205682
 GameObject:
   m_ObjectHideFlags: 0
