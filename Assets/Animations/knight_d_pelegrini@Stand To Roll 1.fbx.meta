@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 96cdf61caee617b4f8ba49622d128ad4
+guid: 18d163440ddbda147b85f50da4997878
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Stand To Roll
+    second: Stand To Roll 1
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Stand To Roll
+      name: Stand To Roll 1
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
@@ -50,10 +50,10 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 0
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -526,13 +526,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: knight_d_pelegrini@Stand To Roll(Clone)
+    - name: knight_d_pelegrini@Stand To Roll 1(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Hips
-      parentName: knight_d_pelegrini@Stand To Roll(Clone)
+      parentName: knight_d_pelegrini@Stand To Roll 1(Clone)
       position: {x: -0.011942608, y: 1.1413428, z: -0.013961126}
       rotation: {x: -0.051119044, y: 0.111655146, z: -0.017062534, w: 0.99228466}
       scale: {x: 1, y: 1, z: 1}

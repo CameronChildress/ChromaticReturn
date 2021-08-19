@@ -241,6 +241,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ALT"",
+                    ""type"": ""Button"",
+                    ""id"": ""74c6260d-5053-49aa-8836-39407108baff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -280,7 +288,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0eb6432f-607b-4376-baba-ce14c92799f6"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -298,6 +306,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""CTRL"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""576ba9e6-6a41-4df0-81c5-6b970082929e"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ALT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -313,6 +332,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_B = m_PlayerActions.FindAction("B", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_CTRL = m_PlayerActions.FindAction("CTRL", throwIfNotFound: true);
+        m_PlayerActions_ALT = m_PlayerActions.FindAction("ALT", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -406,6 +426,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_B;
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_CTRL;
+    private readonly InputAction m_PlayerActions_ALT;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -413,6 +434,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @B => m_Wrapper.m_PlayerActions_B;
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @CTRL => m_Wrapper.m_PlayerActions_CTRL;
+        public InputAction @ALT => m_Wrapper.m_PlayerActions_ALT;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -431,6 +453,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @CTRL.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnCTRL;
                 @CTRL.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnCTRL;
                 @CTRL.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnCTRL;
+                @ALT.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnALT;
+                @ALT.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnALT;
+                @ALT.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnALT;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -444,6 +469,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @CTRL.started += instance.OnCTRL;
                 @CTRL.performed += instance.OnCTRL;
                 @CTRL.canceled += instance.OnCTRL;
+                @ALT.started += instance.OnALT;
+                @ALT.performed += instance.OnALT;
+                @ALT.canceled += instance.OnALT;
             }
         }
     }
@@ -458,5 +486,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnB(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCTRL(InputAction.CallbackContext context);
+        void OnALT(InputAction.CallbackContext context);
     }
 }

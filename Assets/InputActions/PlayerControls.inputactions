@@ -228,6 +228,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ALT",
+                    "type": "Button",
+                    "id": "74c6260d-5053-49aa-8836-39407108baff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -267,7 +275,7 @@
                 {
                     "name": "",
                     "id": "0eb6432f-607b-4376-baba-ce14c92799f6",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -283,6 +291,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CTRL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "576ba9e6-6a41-4df0-81c5-6b970082929e",
+                    "path": "<Keyboard>/leftAlt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ALT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
