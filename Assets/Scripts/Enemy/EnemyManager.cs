@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     EnemyMovement enemyMovement;
 
-    bool isPerformingAction;
+    public bool isPerformingAction;
 
     [Header("A.I. Settings")]
     public float detectionRadius = 20;
@@ -24,11 +24,20 @@ public class EnemyManager : MonoBehaviour
         HandleCurrentAction();
     }
 
+    void FixedUpdate()
+    {
+        HandleCurrentAction();
+    }
+
     void HandleCurrentAction()
     {
         if (enemyMovement.currentTarget == null)
         {
             enemyMovement.HandleDetection();
+        }
+        else
+        {
+            enemyMovement.HandleMoveToTarget();
         }
     }
 }
