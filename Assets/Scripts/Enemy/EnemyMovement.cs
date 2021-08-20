@@ -105,7 +105,7 @@ public class EnemyMovement : MonoBehaviour
 
             navMeshAgent.enabled = true;
             navMeshAgent.SetDestination(currentTarget.transform.position);
-            rigidbody.velocity = targetVelocity;
+            rigidbody.velocity = targetVelocity / speed;
             transform.rotation = Quaternion.Slerp(transform.rotation, navMeshAgent.transform.rotation, rotationSpeed / Time.deltaTime);
         }
     }
