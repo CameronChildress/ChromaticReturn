@@ -193,4 +193,13 @@ public class PlayerMovement : MonoBehaviour
         animatorManager.PlayTargetAnimation("Roll", true, true);
         //Toggle Invulnerable bool for no HP damage during action
     }
+
+    public void HandleAttacking()
+    {
+        if (inputManager.isAttacking)
+        {
+            playerManager.isInteracting = true;
+        }
+        animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
+    }
 }

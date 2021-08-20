@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
     public bool altInput;
     public bool jumpInput;
 
+    public bool isAttacking;
+
     void Awake()
     {
         animatorManager = GetComponent<AnimatorManager>();
@@ -45,6 +47,7 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerActions.CTRL.performed += i => ctrlInput = true;
             playerControls.PlayerActions.ALT.performed += i => altInput = true;
+            playerControls.PlayerActions.LeftClick.performed += i => isAttacking = true;
         }
 
         playerControls.Enable();
@@ -62,6 +65,7 @@ public class InputManager : MonoBehaviour
         HandleJumpInput();
         HandleDodgeInput();
         HandleRollInput();
+        HandleAttackInput();
     }
 
     void HandleMovementInput()
@@ -115,6 +119,15 @@ public class InputManager : MonoBehaviour
         {
             altInput = false;
             playerMovement.HandleRoll();
+        }
+    }
+
+    void HandleAttackInput()
+    {
+        if (isAttacking)
+        {
+            isAttacking = false;
+            playerMovement.HandleAttacking();
         }
     }
 }

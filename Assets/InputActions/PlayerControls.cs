@@ -249,6 +249,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8517f6f-4fb8-4a2c-bc63-dcb49770ce48"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -317,6 +325,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""ALT"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8fe0cb47-1923-4d59-b43f-5cb5e46d2b05"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3ecbaa3-d355-4dc1-8665-c87055156476"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -333,6 +363,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_CTRL = m_PlayerActions.FindAction("CTRL", throwIfNotFound: true);
         m_PlayerActions_ALT = m_PlayerActions.FindAction("ALT", throwIfNotFound: true);
+        m_PlayerActions_LeftClick = m_PlayerActions.FindAction("LeftClick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -427,6 +458,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_CTRL;
     private readonly InputAction m_PlayerActions_ALT;
+    private readonly InputAction m_PlayerActions_LeftClick;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -435,6 +467,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @CTRL => m_Wrapper.m_PlayerActions_CTRL;
         public InputAction @ALT => m_Wrapper.m_PlayerActions_ALT;
+        public InputAction @LeftClick => m_Wrapper.m_PlayerActions_LeftClick;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -456,6 +489,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ALT.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnALT;
                 @ALT.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnALT;
                 @ALT.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnALT;
+                @LeftClick.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLeftClick;
+                @LeftClick.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLeftClick;
+                @LeftClick.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnLeftClick;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -472,6 +508,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ALT.started += instance.OnALT;
                 @ALT.performed += instance.OnALT;
                 @ALT.canceled += instance.OnALT;
+                @LeftClick.started += instance.OnLeftClick;
+                @LeftClick.performed += instance.OnLeftClick;
+                @LeftClick.canceled += instance.OnLeftClick;
             }
         }
     }
@@ -487,5 +526,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCTRL(InputAction.CallbackContext context);
         void OnALT(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
     }
 }
