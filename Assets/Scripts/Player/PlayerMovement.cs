@@ -196,10 +196,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleAttacking()
     {
-        if (inputManager.isAttacking)
-        {
-            playerManager.isInteracting = true;
-        }
+        if (playerManager.isInteracting) return;
+
         animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
     }
 }
