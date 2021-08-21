@@ -2405,7 +2405,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0.0000005075771, w: 1}
   m_LocalPosition: {x: 0.20471214, y: -0.00000004252657, z: 0.00000019930056}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2869413995589236438}
   m_Father: {fileID: 6217512980318275423}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5076,13 +5077,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3213851043654872172}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.14981973, y: -0.008437157, z: -0.04532927}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0.976949, y: 0.03821818, z: -0.17442225, w: 0.11699157}
+  m_LocalPosition: {x: 0.12925266, y: 0.08842939, z: -0.0067791236}
+  m_LocalScale: {x: 0.5, y: 0.50000006, z: 1}
   m_Children: []
-  m_Father: {fileID: 7663443564070128587}
+  m_Father: {fileID: 472076715318062911}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 14, y: -160, z: -182}
 --- !u!1 &2911761021331615205
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,6 +5408,7 @@ GameObject:
   - component: {fileID: 2869413995589236438}
   - component: {fileID: 1188368963955751283}
   - component: {fileID: 4006259796977028537}
+  - component: {fileID: 3213851043654872173}
   m_Layer: 0
   m_Name: Sword4_Blue
   m_TagString: Untagged
@@ -5414,6 +5416,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &3213851043654872173
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213851043654872172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2763774367042099228, guid: 26430834ea307e24083f9e03d7fc4f0f, type: 3}
 --- !u!4 &3222177104931296751
 Transform:
   m_ObjectHideFlags: 0
@@ -10684,8 +10700,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.79918027, y: 1.3404369, z: -0.0016706618}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2869413995589236438}
+  m_Children: []
   m_Father: {fileID: 1300383027723581039}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
