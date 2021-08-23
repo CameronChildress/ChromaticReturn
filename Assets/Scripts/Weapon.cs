@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    Collider collider;
+    public Collider collider;
 
-    public float damage = 1f;
+    public float damage = .5f;
 
     private void Awake()
     {
@@ -15,10 +15,17 @@ public class Weapon : MonoBehaviour
 
     public void ToggleCollider()
     {
-        collider.enabled = !enabled;
+        if (collider.enabled)
+        {
+            collider.enabled = false;
+        }
+        else if (!collider.enabled)
+        {
+            collider.enabled = true;
+        }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {

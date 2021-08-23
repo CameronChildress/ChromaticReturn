@@ -128,6 +128,7 @@ public class InputManager : MonoBehaviour
         {
             isAttacking = false;
             playerMovement.HandleAttacking();
+            //playerMovement.isAttacking = true;
         }
     }
 }

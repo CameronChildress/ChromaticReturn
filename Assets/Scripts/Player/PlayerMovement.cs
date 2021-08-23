@@ -50,8 +50,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        weaponTimer -= Time.deltaTime;
-        if (weaponTimer <= 0 && isAttacking)
+        if (isAttacking)
+        {
+            weaponTimer -= Time.deltaTime;
+        }
+
+        if (weaponTimer <= 0)
         {
             weapon.ToggleCollider();
             weaponTimer = 1f;
@@ -216,8 +220,8 @@ public class PlayerMovement : MonoBehaviour
         if (!isAttacking)
         {
             animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
-            weapon.ToggleCollider();
             isAttacking = true;
+            weapon.ToggleCollider();
         }
     }
 }

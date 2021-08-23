@@ -739,6 +739,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de788718a0fbcce44977c97015f959d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &57242417 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 8396514772309281601, guid: 6fa0135ca0cd88549b7bdc9172596b00, type: 3}
+  m_PrefabInstance: {fileID: 667468705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &62824836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4948,6 +4953,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 372563906, guid: 6fa0135ca0cd88549b7bdc9172596b00, type: 3}
+      propertyPath: damage
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 372563906, guid: 6fa0135ca0cd88549b7bdc9172596b00, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 57242417}
     - target: {fileID: 1594880729441620260, guid: 6fa0135ca0cd88549b7bdc9172596b00, type: 3}
       propertyPath: weapon
       value: 
@@ -5003,6 +5016,10 @@ PrefabInstance:
     - target: {fileID: 8396514772309281601, guid: 6fa0135ca0cd88549b7bdc9172596b00, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396514772309281601, guid: 6fa0135ca0cd88549b7bdc9172596b00, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fa0135ca0cd88549b7bdc9172596b00, type: 3}
