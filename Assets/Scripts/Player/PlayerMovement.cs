@@ -8,7 +8,11 @@ public class PlayerMovement : MonoBehaviour
     AnimatorManager animatorManager;
     InputManager inputManager;
     Transform cameraObject;
+    public Weapon weapon;
+    public float weaponTimer = 1f;
     public Rigidbody rigidbody;
+
+    public bool isAttacking;
 
     [Header("Falling")]
     public float inAirTimer;
@@ -42,6 +46,17 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
 
         cameraObject = Camera.main.transform;
+    }
+
+    private void Update()
+    {
+        weaponTimer -= Time.deltaTime;
+        if (weaponTimer <= 0 && isAttacking)
+        {
+            weapon.ToggleCollider();
+            weaponTimer = 1f;
+            isAttacking = false;
+        }
     }
 
     public void HandleAllMovement()
@@ -198,6 +213,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerManager.isInteracting) return;
 
-        animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
+        if (!isAttacking)
+        {
+            animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
+            weapon.ToggleCollider();
+            isAttacking = true;
+        }
     }
 }

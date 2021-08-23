@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DealDamage : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
+    Collider collider;
+
     public float damage = 1f;
 
-    void Start()
+    private void Awake()
     {
-        
+        collider = GetComponent<MeshCollider>();
     }
 
-    void Update()
+    public void ToggleCollider()
     {
-        
+        collider.enabled = !enabled;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.tag == "Enemy")
         {

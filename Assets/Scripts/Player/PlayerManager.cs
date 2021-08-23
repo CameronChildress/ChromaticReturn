@@ -12,8 +12,6 @@ public class PlayerManager : MonoBehaviour
     public bool isInteracting;
     public bool isUsingRootMotion;
 
-    public float damage = 1f;
-
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();

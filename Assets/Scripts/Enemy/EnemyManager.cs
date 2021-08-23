@@ -24,6 +24,11 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         HandleCurrentAction();
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()
