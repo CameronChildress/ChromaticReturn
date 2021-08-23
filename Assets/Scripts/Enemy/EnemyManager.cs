@@ -6,6 +6,8 @@ public class EnemyManager : MonoBehaviour
 {
     EnemyMovement enemyMovement;
 
+    public float health = 5f;
+
     public bool isPerformingAction;
 
     [Header("A.I. Settings")]
@@ -39,5 +41,12 @@ public class EnemyManager : MonoBehaviour
         {
             enemyMovement.HandleMoveToTarget();
         }
+    }
+
+    public void TakeDamage()
+    {
+        if (health <= 0) Destroy(gameObject);
+
+        health--;
     }
 }
