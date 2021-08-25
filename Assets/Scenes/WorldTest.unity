@@ -2400,6 +2400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_stairs (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 157918, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 404700, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -9218,6 +9222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_stairs (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 157918, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 404700, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -14943,6 +14951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_stairs (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 157918, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 404700, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -17086,6 +17098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_stairs (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 157918, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 404700, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -18182,6 +18198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_stairs
       objectReference: {fileID: 0}
+    - target: {fileID: 157918, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 404700, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -18432,6 +18452,10 @@ PrefabInstance:
     - target: {fileID: 157918, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
       propertyPath: m_Name
       value: stone_stairs (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 157918, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 404700, guid: bf2fbad40791acd49990f2f65d1e3115, type: 3}
       propertyPath: m_RootOrder
