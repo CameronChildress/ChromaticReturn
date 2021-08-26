@@ -73,6 +73,7 @@ public class EnemyMovement : MonoBehaviour
             if (distanceFromTarget > stoppingDistance)
             {
                 enemyAnimatorManager.animator.SetFloat("Vertical", 1, 0.1f, Time.deltaTime);
+                isAttacking = false;
             }
             else if (distanceFromTarget < stoppingDistance)
             {
@@ -80,6 +81,11 @@ public class EnemyMovement : MonoBehaviour
                 HandleAttacking();
             }
         }
+
+        //if (viewableAngle > enemyManager.maximumDetectionAngle || viewableAngle < enemyManager.minimumDetectionAngle)
+        //{
+        //    currentTarget = null;
+        //}
 
         HandleRotateTowardsTarget();
     }
