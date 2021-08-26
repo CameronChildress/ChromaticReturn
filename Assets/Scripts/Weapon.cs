@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
             other.gameObject.GetComponent<EnemyManager>().health -= damage;
         }
 
-        if (other.gameObject.tag == "Character")
+        if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerManager>().health -= damage;
         }
