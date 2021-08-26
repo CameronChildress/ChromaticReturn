@@ -12,6 +12,9 @@ public class EnemyMovement : MonoBehaviour
     public PlayerManager currentTarget;
     public LayerMask detectionLayer;
 
+    public Weapon weapon;
+    public bool isAttacking;
+
     public float distanceFromTarget;
     public float stoppingDistance = 1f;
     public float rotationSpeed = 50;
@@ -74,6 +77,7 @@ public class EnemyMovement : MonoBehaviour
             else if (distanceFromTarget < stoppingDistance)
             {
                 enemyAnimatorManager.animator.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
+                HandleAttacking();
             }
         }
 
@@ -107,6 +111,16 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.SetDestination(currentTarget.transform.position);
             rigidbody.velocity = targetVelocity / speed;
             transform.rotation = Quaternion.Slerp(transform.rotation, navMeshAgent.transform.rotation, rotationSpeed / Time.deltaTime);
+        }
+    }
+
+    void HandleAttacking()
+    {
+        if (!isAttacking)
+        {
+            enemyAnimatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
+            isAttacking = true;
+            weapon.ToggleCollider();
         }
     }
 }

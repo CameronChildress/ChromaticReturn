@@ -32,6 +32,11 @@ public class Weapon : MonoBehaviour
             other.gameObject.GetComponent<EnemyManager>().health -= damage;
         }
 
+        if (other.gameObject.tag == "Character")
+        {
+            other.gameObject.GetComponent<PlayerManager>().health -= damage;
+        }
+
         Debug.Log(other.gameObject.name);
     }
 }
