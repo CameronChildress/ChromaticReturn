@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using UnityEditor.Rendering.PostProcessing;
 
 public class EnemyManager : MonoBehaviour
 {
     EnemyMovement enemyMovement;
+    public VolumeProfile volumeProfile;
 
     public float health = 5f;
 
@@ -28,6 +32,12 @@ public class EnemyManager : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            
+            if (volumeProfile != null)
+            {
+                Volume globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+                globalVolume.profile = volumeProfile;
+            }
         }
     }
 
