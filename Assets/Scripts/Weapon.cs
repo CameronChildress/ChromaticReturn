@@ -13,7 +13,10 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         collider = GetComponent<MeshCollider>();
-        trail = trailObject.GetComponent<TrailRenderer>();
+        if (trailObject != null)
+        {
+            trail = trailObject.GetComponent<TrailRenderer>();
+        }
     }
 
     public void ToggleCollider()
@@ -21,12 +24,18 @@ public class Weapon : MonoBehaviour
         if (collider.enabled)
         {
             collider.enabled = false;
-            trail.enabled = false;
+            if (trail != null)
+            {
+                trail.enabled = false;
+            }
         }
         else if (!collider.enabled)
         {
             collider.enabled = true;
-            trail.enabled = true;
+            if (trail != null)
+            {
+                trail.enabled = true;
+            }
         }
     }
 
