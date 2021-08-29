@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float weaponTimer = 1f;
     public Rigidbody rigidbody;
 
+    AudioSource audio;
+
     public bool isAttacking;
 
     [Header("Falling")]
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         animatorManager = GetComponent<AnimatorManager>();
         inputManager = GetComponent<InputManager>();
         rigidbody = GetComponent<Rigidbody>();
+        audio = GetComponentInChildren<AudioSource>();
 
         cameraObject = Camera.main.transform;
     }
@@ -222,6 +225,7 @@ public class PlayerMovement : MonoBehaviour
             animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
             isAttacking = true;
             weapon.ToggleCollider();
+            audio?.Play();
         }
     }
 }
