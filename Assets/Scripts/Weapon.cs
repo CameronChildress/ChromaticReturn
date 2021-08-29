@@ -5,12 +5,15 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Collider collider;
+    public GameObject trailObject;
+    TrailRenderer trail;
 
     public float damage = .5f;
 
     private void Awake()
     {
         collider = GetComponent<MeshCollider>();
+        trail = trailObject.GetComponent<TrailRenderer>();
     }
 
     public void ToggleCollider()
@@ -18,10 +21,12 @@ public class Weapon : MonoBehaviour
         if (collider.enabled)
         {
             collider.enabled = false;
+            trail.enabled = false;
         }
         else if (!collider.enabled)
         {
             collider.enabled = true;
+            trail.enabled = true;
         }
     }
 
