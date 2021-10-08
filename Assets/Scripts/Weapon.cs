@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Collider collider;
-    public GameObject trailObject;
+    GameObject trailObject;
     TrailRenderer trail;
 
     public float damage = .5f;
