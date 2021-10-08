@@ -5,6 +5,8 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
+    PlayerHandleAttacks playerHandleAttacks;
+    PlayerInventory playerInventory;
     PlayerMovement playerMovement;
     AnimatorManager animatorManager;
     
@@ -23,12 +25,15 @@ public class InputManager : MonoBehaviour
     public bool altInput;
     public bool jumpInput;
 
-    public bool isAttacking;
+    public bool isLightAttacking;
+    public bool isHeavyAttacking;
 
     void Awake()
     {
         animatorManager = GetComponent<AnimatorManager>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerHandleAttacks = GetComponent<PlayerHandleAttacks>();
+        playerInventory = GetComponent<PlayerInventory>();
     }
 
     void OnEnable()
@@ -47,7 +52,8 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerActions.CTRL.performed += i => ctrlInput = true;
             playerControls.PlayerActions.ALT.performed += i => altInput = true;
-            playerControls.PlayerActions.LeftClick.performed += i => isAttacking = true;
+            playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = true;
+            playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = true;
         }
 
         playerControls.Enable();
@@ -124,11 +130,19 @@ public class InputManager : MonoBehaviour
 
     void HandleAttackInput()
     {
-        if (isAttacking)
+        if (isLightAttacking)
         {
-            isAttacking = false;
+            isLightAttacking = false;
             playerMovement.HandleAttacking();
+            playerHandleAttacks.HandleLightAttack(playerInventory.rightWeapon);
             //playerMovement.isAttacking = true;
+        }
+
+        if (isHeavyAttacking)
+        {
+            isHeavyAttacking = false;
+            playerMovement.HandleAttacking();
+            playerHandleAttacks.HandleHeavyAttack(playerInventory.rightWeapon);
         }
     }
 }

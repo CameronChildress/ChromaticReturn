@@ -238,9 +238,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "LeftClick",
+                    "name": "LightAttack",
                     "type": "Button",
                     "id": "d8517f6f-4fb8-4a2c-bc63-dcb49770ce48",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "b5bf43f5-e0b4-4b7e-87d1-783a98d82431",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -320,7 +328,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LeftClick",
+                    "action": "LightAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -331,7 +339,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LeftClick",
+                    "action": "LightAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8874553-2935-4465-885a-a3a7fd53d15c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab857b3f-6369-48d0-9f54-fc17621b6170",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     AudioSource audio;
 
-    public bool isAttacking;
+    public bool isLightAttacking;
 
     [Header("Falling")]
     public float inAirTimer;
@@ -53,16 +53,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isAttacking)
+        if (isLightAttacking)
         {
             weaponTimer -= Time.deltaTime;
         }
 
         if (weaponTimer <= 0)
         {
-            weapon.ToggleCollider();
+            //weapon.ToggleCollider();
             weaponTimer = 1f;
-            isAttacking = false;
+            isLightAttacking = false;
         }
     }
 
@@ -220,11 +220,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerManager.isInteracting) return;
 
-        if (!isAttacking)
+        if (!isLightAttacking)
         {
             animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
-            isAttacking = true;
-            weapon.ToggleCollider();
+            isLightAttacking = true;
+            //weapon.ToggleCollider();
             audio?.Play();
         }
     }
