@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     GameObject trailObject;
     TrailRenderer trail;
 
-    public float damage = .5f;
+    public int damage = 10;
 
     private void Awake()
     {
@@ -48,7 +48,8 @@ public class Weapon : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerManager>().health -= damage;
+            //other.gameObject.GetComponent<PlayerManager>().health -= damage;
+            other.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
         }
 
         Debug.Log(other.gameObject.name);
