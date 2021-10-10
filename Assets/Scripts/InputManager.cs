@@ -25,6 +25,11 @@ public class InputManager : MonoBehaviour
     public bool altInput;
     public bool jumpInput;
 
+    public bool dPadUp;
+    public bool dPadDown;
+    public bool dPadLeft;
+    public bool dPadRight;
+
     public bool isLightAttacking;
     public bool isHeavyAttacking;
 
@@ -54,6 +59,11 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.ALT.performed += i => altInput = true;
             playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = true;
             playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = true;
+
+            playerControls.PlayerQuickSlots.DPadUp.performed += i => dPadUp = true;
+            playerControls.PlayerQuickSlots.DPadDown.performed += i => dPadDown = true;
+            playerControls.PlayerQuickSlots.DPadLeft.performed += i => dPadLeft = true;
+            playerControls.PlayerQuickSlots.DPadRight.performed += i => dPadRight = true;
         }
 
         playerControls.Enable();
@@ -72,6 +82,8 @@ public class InputManager : MonoBehaviour
         HandleDodgeInput();
         HandleRollInput();
         HandleAttackInput();
+
+        HandleQuickSlotInput();
     }
 
     void HandleMovementInput()
@@ -143,6 +155,20 @@ public class InputManager : MonoBehaviour
             isHeavyAttacking = false;
             playerMovement.HandleAttacking();
             playerHandleAttacks.HandleHeavyAttack(playerInventory.rightWeapon);
+        }
+    }
+
+    void HandleQuickSlotInput()
+    {
+        if (dPadRight)
+        {
+            playerInventory.ChangeRightWeapon();
+            dPadRight = false;
+        }
+        if (dPadLeft)
+        {
+            playerInventory.ChangeLeftWeapon();
+            dPadLeft = false;
         }
     }
 }
