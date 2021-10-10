@@ -181,6 +181,15 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = targetPosition;
             }
         }
+
+        if (playerManager.isInteracting || inputManager.moveAmount > 0)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime / 0.1f);
+        }
+        else
+        {
+            transform.position = targetPosition;
+        }
     }
 
     public void HandleJumping()

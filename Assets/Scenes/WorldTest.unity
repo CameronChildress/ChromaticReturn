@@ -25202,6 +25202,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1668356542832806804, guid: 32dcc23aa1b8b6a489e9cac0ccad8b65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 1668356543587140076, guid: 32dcc23aa1b8b6a489e9cac0ccad8b65, type: 3}
       propertyPath: m_Name
       value: Camera Manager
@@ -25213,6 +25217,18 @@ PrefabInstance:
     - target: {fileID: 1668356543587140077, guid: 32dcc23aa1b8b6a489e9cac0ccad8b65, type: 3}
       propertyPath: cameraFollowSpeed
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668356543587140077, guid: 32dcc23aa1b8b6a489e9cac0ccad8b65, type: 3}
+      propertyPath: cameraCollisionOffSet
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668356543587140077, guid: 32dcc23aa1b8b6a489e9cac0ccad8b65, type: 3}
+      propertyPath: cameraCollisionRadius
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668356543587140077, guid: 32dcc23aa1b8b6a489e9cac0ccad8b65, type: 3}
+      propertyPath: minimumCollisionOffSet
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1668356543587140078, guid: 32dcc23aa1b8b6a489e9cac0ccad8b65, type: 3}
       propertyPath: m_RootOrder
