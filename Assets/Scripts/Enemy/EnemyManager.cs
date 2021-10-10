@@ -10,8 +10,6 @@ public class EnemyManager : MonoBehaviour
     EnemyMovement enemyMovement;
     public VolumeProfile volumeProfile;
 
-    public float health = 5f;
-
     public bool isPerformingAction;
 
     [Header("A.I. Settings")]
@@ -29,16 +27,16 @@ public class EnemyManager : MonoBehaviour
     {
         HandleCurrentAction();
 
-        if (health <= 0)
-        {
-            Destroy(gameObject);
+        //if (health <= 0)
+        //{
+        //    Destroy(gameObject);
             
-            if (volumeProfile != null)
-            {
-                Volume globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
-                globalVolume.profile = volumeProfile;
-            }
-        }
+        //    if (volumeProfile != null)
+        //    {
+        //        Volume globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+        //        globalVolume.profile = volumeProfile;
+        //    }
+        //}
     }
 
     void FixedUpdate()
@@ -58,10 +56,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
-    {
-        if (health <= 0) Destroy(gameObject);
+    //public void TakeDamage()
+    //{
+    //    if (health <= 0) Destroy(gameObject);
 
-        health--;
-    }
+    //    health--;
+    //}
 }

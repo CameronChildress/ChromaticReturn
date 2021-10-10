@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de788718a0fbcce44977c97015f959d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 0}
-  damage: 1
+  damageCollider: {fileID: 0}
+  damage: 25
 --- !u!1 &1375165032522769048
 GameObject:
   m_ObjectHideFlags: 0

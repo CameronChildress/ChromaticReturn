@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Collider collider;
+    public Collider damageCollider;
     GameObject trailObject;
     TrailRenderer trail;
 
-    public int damage = 10;
+    public int damage = 25;
 
     private void Awake()
     {
-        collider = GetComponent<MeshCollider>();
+        damageCollider = GetComponent<Collider>();
+        damageCollider.gameObject.SetActive(true);
+        damageCollider.isTrigger = true;
+        damageCollider.enabled = false;
         if (trailObject != null)
         {
             trail = trailObject.GetComponent<TrailRenderer>();
@@ -21,37 +24,49 @@ public class Weapon : MonoBehaviour
 
     public void ToggleCollider()
     {
-        if (collider.enabled)
-        {
-            collider.enabled = false;
-            if (trail != null)
-            {
-                trail.enabled = false;
-            }
-        }
-        else if (!collider.enabled)
-        {
-            collider.enabled = true;
-            if (trail != null)
-            {
-                trail.enabled = true;
-            }
-        }
+        damageCollider.enabled = true;
+
+        //if (damageCollider.enabled)
+        //{
+        //    damageCollider.enabled = false;
+        //    if (trail != null)
+        //    {
+        //        trail.enabled = false;
+        //    }
+        //}
+        //else if (!damageCollider.enabled)
+        //{
+        //    damageCollider.enabled = true;
+        //    if (trail != null)
+        //    {
+        //        trail.enabled = true;
+        //    }
+        //}
+    }
+    
+    public void ToggleOffCollider()
+    {
+        damageCollider.enabled = false;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyManager>().health -= damage;
+            EnemyStats enemyStats = other.GetComponent<EnemyStats>();
+            if (enemyStats != null)
+            {
+                enemyStats.TakeDamage(damage);
+            }
         }
 
         if (other.gameObject.tag == "Player")
         {
-            //other.gameObject.GetComponent<PlayerManager>().health -= damage;
-            other.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(damage);
+            }
         }
-
-        Debug.Log(other.gameObject.name);
     }
 }

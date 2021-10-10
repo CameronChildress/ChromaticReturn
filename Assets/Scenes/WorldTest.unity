@@ -4550,7 +4550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8439d03ab329c644cbb05504548fdd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
   isInteracting: 0
   isUsingRootMotion: 0
 --- !u!114 &246254570
@@ -6350,7 +6349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de788718a0fbcce44977c97015f959d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 341013793}
+  damageCollider: {fileID: 0}
   damage: 1
 --- !u!64 &341013793
 MeshCollider:
@@ -10788,7 +10787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: fca1177c9f4752841aa2781e5a854b50, type: 2}
-  health: 3
   isPerformingAction: 0
   detectionRadius: 20
   minimumDetectionAngle: -50
@@ -26686,7 +26684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de788718a0fbcce44977c97015f959d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1737111371}
+  damageCollider: {fileID: 0}
   damage: 1
 --- !u!1001 &1740483016
 PrefabInstance:
@@ -32541,7 +32539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de788718a0fbcce44977c97015f959d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1645786093826982695}
+  damageCollider: {fileID: 0}
   damage: 1
 --- !u!4 &1646415179038322576
 Transform:
@@ -37809,7 +37807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 0a64ac12ae6f1f9429c430c487fb5192, type: 2}
-  health: 5
   isPerformingAction: 0
   detectionRadius: 20
   minimumDetectionAngle: -50
@@ -37827,6 +37824,7 @@ GameObject:
   - component: {fileID: 938499826440573408}
   - component: {fileID: 9090469156298344682}
   - component: {fileID: 9090469156298344681}
+  - component: {fileID: 9090469156298344684}
   - component: {fileID: 9090469156298344679}
   - component: {fileID: 9090469156298344680}
   - component: {fileID: 9090469156298344678}
@@ -37837,6 +37835,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9090469156298344684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090469156298344683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a5733349b6efb4582e038771d4f832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLevel: 10
+  maxHealth: 0
+  currentHealth: 0
 --- !u!1 &9122114893756572881
 GameObject:
   m_ObjectHideFlags: 0

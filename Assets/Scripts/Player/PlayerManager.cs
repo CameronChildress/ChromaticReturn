@@ -9,8 +9,6 @@ public class PlayerManager : MonoBehaviour
     CameraManager cameraManager;
     Animator animator;
 
-    public float health = 5;
-
     public bool isInteracting;
     public bool isUsingRootMotion;
 
@@ -25,11 +23,6 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         inputManager.HandleAllInputs();
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void FixedUpdate()

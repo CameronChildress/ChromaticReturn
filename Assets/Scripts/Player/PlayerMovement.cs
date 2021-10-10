@@ -231,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isLightAttacking)
         {
-            animatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
+            animatorManager.PlayTargetAnimation("LightAttack01", true);
             isLightAttacking = true;
             //weapon.ToggleCollider();
             audio?.Play();
