@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         playerMovement = GetComponent<PlayerMovement>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
