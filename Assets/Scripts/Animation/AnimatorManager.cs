@@ -12,8 +12,8 @@ public class AnimatorManager : AllAnimatorManager
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        playerManager = GetComponent<PlayerManager>();
-        playerMovement = GetComponent<PlayerMovement>();
+        playerManager = GetComponentInParent<PlayerManager>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
         horizontal = Animator.StringToHash("Horizontal");
         vertical = Animator.StringToHash("Vertical");
     }

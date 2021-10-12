@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        animatorManager = GetComponent<AnimatorManager>();
+        animatorManager = GetComponentInChildren<AnimatorManager>();
         playerMovement = GetComponent<PlayerMovement>();
         playerHandleAttacks = GetComponent<PlayerHandleAttacks>();
         playerInventory = GetComponent<PlayerInventory>();

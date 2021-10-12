@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         playerManager = GetComponent<PlayerManager>();
-        animatorManager = GetComponent<AnimatorManager>();
+        animatorManager = GetComponentInChildren<AnimatorManager>();
         inputManager = GetComponent<InputManager>();
         rigidbody = GetComponent<Rigidbody>();
         //audio = GetComponentInChildren<AudioSource>();
