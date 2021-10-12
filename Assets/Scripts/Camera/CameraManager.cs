@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     InputManager inputManager;
-    public Transform targetTransform; //The obj the camera will follow
+    public GameObject targetTransform; //The obj the camera will follow
     public Transform cameraPivot; //The obj the camera uses to pivot (Look up and down)
     public Transform cameraTransform; //The transform of the actual camera obj in the scene
     public LayerMask collisionLayers; //The layers we want our camera to collide with
@@ -27,7 +27,7 @@ public class CameraManager : MonoBehaviour
 
     void Awake()
     {
-        targetTransform = FindObjectOfType<PlayerManager>().transform;
+        //targetTransform = FindObjectOfType<PlayerManager>().transform;
         inputManager = FindObjectOfType<InputManager>();
         cameraTransform = Camera.main.transform;
         defaultPosition = cameraTransform.localPosition.z;
@@ -48,7 +48,7 @@ public class CameraManager : MonoBehaviour
 
     void FollowTarget()
     {
-        Vector3 targetPosition = Vector3.SmoothDamp(transform.position, targetTransform.position, ref cameraFollowVelocity, cameraFollowSpeed);
+        Vector3 targetPosition = Vector3.SmoothDamp(transform.position, targetTransform.transform.position, ref cameraFollowVelocity, cameraFollowSpeed);
         transform.position = targetPosition;
     }
 

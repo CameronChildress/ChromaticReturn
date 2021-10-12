@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         animatorManager = GetComponent<AnimatorManager>();
         inputManager = GetComponent<InputManager>();
         rigidbody = GetComponent<Rigidbody>();
-        audio = GetComponentInChildren<AudioSource>();
+        //audio = GetComponentInChildren<AudioSource>();
 
         cameraObject = Camera.main.transform;
     }
@@ -234,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
             animatorManager.PlayTargetAnimation("LightAttack01", true);
             isLightAttacking = true;
             //weapon.ToggleCollider();
-            audio?.Play();
+            //audio?.Play();
         }
     }
 }

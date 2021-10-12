@@ -145,7 +145,7 @@ public class InputManager : MonoBehaviour
         if (isLightAttacking)
         {
             isLightAttacking = false;
-            playerMovement.HandleAttacking();
+            //playerMovement.HandleAttacking();
             playerHandleAttacks.HandleLightAttack(playerInventory.rightWeapon);
             //playerMovement.isAttacking = true;
         }
@@ -153,7 +153,7 @@ public class InputManager : MonoBehaviour
         if (isHeavyAttacking)
         {
             isHeavyAttacking = false;
-            playerMovement.HandleAttacking();
+            //playerMovement.HandleAttacking();
             playerHandleAttacks.HandleHeavyAttack(playerInventory.rightWeapon);
         }
     }
