@@ -31411,10 +31411,6 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 640686354}
-    - target: {fileID: 207231845452242467, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
-      propertyPath: healthLevel
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 207231845452242478, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
       propertyPath: m_Name
       value: Player_BlackKnight
