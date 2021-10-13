@@ -10,8 +10,15 @@ public class WeaponSlotManager : MonoBehaviour
     Weapon leftWeaponCollider;
     Weapon rightWeaponCollider;
 
+    Animator animator;
+
+    QuickSlotsUI quickSlotsUI;
+
     private void Awake()
     {
+        //animator.GetComponent<Animator>();
+        quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
+
         WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
         foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
         {
@@ -32,11 +39,13 @@ public class WeaponSlotManager : MonoBehaviour
         {
             LeftHandSlot.LoadWeaponObject(weaponItem);
             LoadLeftWeaponCollider();
+            quickSlotsUI.UpdateWeaponUIQuickSlots(true, weaponItem);
         }
         else
         {
             RightHandSlot.LoadWeaponObject(weaponItem);
             LoadRightWeaponCollider();
+            quickSlotsUI.UpdateWeaponUIQuickSlots(false, weaponItem);
         }
     }
 
