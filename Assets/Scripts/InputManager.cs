@@ -9,7 +9,9 @@ public class InputManager : MonoBehaviour
     PlayerInventory playerInventory;
     PlayerMovement playerMovement;
     AnimatorManager animatorManager;
-    
+    PlayerStats playerStats;
+
+
     Vector2 movementInput;
     public Vector2 cameraInput;
 
@@ -39,6 +41,7 @@ public class InputManager : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerHandleAttacks = GetComponent<PlayerHandleAttacks>();
         playerInventory = GetComponent<PlayerInventory>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     void OnEnable()
@@ -103,12 +106,14 @@ public class InputManager : MonoBehaviour
 
     void HandleSprintingInput()
     {
-        if (bButtonInput && moveAmount > 0.5f)
+        if (bButtonInput && moveAmount > 0.5f && playerStats.currentStamina > 0)
         {
             playerMovement.isSprinting = true;
+            playerStats.UseStamina(8);   
         }
         else
         {
+            playerStats.ReturnStamina(8);
             playerMovement.isSprinting = false;
         }
     }
