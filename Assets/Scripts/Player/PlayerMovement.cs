@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     AnimatorManager animatorManager;
     InputManager inputManager;
     Transform cameraObject;
+    PlayerStats playerStats;
     public Weapon weapon;
     public float weaponTimer = 1f;
     public Rigidbody rigidbody;
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         animatorManager = GetComponentInChildren<AnimatorManager>();
         inputManager = GetComponent<InputManager>();
         rigidbody = GetComponent<Rigidbody>();
+        playerStats = GetComponent<PlayerStats>();
         //audio = GetComponentInChildren<AudioSource>();
 
         cameraObject = Camera.main.transform;
@@ -87,13 +89,13 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = 0;
 
         //If sprinting, use sprintSpeed else use normal speed
-        if (isSprinting)
+        if (isSprinting && playerStats.currentStamina > 1)
         {
             moveDirection *= sprintingSpeed;
         }
         else
         {
-            if (inputManager.moveAmount >= 0.5f)
+            if (inputManager.moveAmount >= 0.5f || playerStats.currentStamina < 1)
             {
                 moveDirection *= runningSpeed;
             }

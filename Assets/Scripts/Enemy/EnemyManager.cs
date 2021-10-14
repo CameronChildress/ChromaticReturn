@@ -8,6 +8,7 @@ using UnityEditor.Rendering.PostProcessing;
 public class EnemyManager : MonoBehaviour
 {
     EnemyMovement enemyMovement;
+    EnemyStats enemyStats;
     public VolumeProfile volumeProfile;
 
     public bool isPerformingAction;
@@ -21,22 +22,24 @@ public class EnemyManager : MonoBehaviour
     void Awake()
     {
         enemyMovement = GetComponent<EnemyMovement>();
+        enemyStats = GetComponent<EnemyStats>();
     }
 
     void Update()
     {
         HandleCurrentAction();
 
-        //if (health <= 0)
-        //{
-        //    Destroy(gameObject);
-            
-        //    if (volumeProfile != null)
-        //    {
-        //        Volume globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
-        //        globalVolume.profile = volumeProfile;
-        //    }
-        //}
+        if (enemyStats.currentHealth <= 0)
+        {
+            Destroy(gameObject);
+
+            WorldColorManager.Instance.OnChangeWorldProfile();
+
+            //if (volumeProfile != null)
+            //{
+                
+            //}
+        }
     }
 
     void FixedUpdate()

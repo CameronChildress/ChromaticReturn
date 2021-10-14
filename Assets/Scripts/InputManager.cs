@@ -106,7 +106,7 @@ public class InputManager : MonoBehaviour
 
     void HandleSprintingInput()
     {
-        if (bButtonInput && moveAmount > 0.5f && playerStats.currentStamina > 0)
+        if (bButtonInput && moveAmount > 0.5f)
         {
             playerMovement.isSprinting = true;
             playerStats.UseStamina(8);   
@@ -150,18 +150,20 @@ public class InputManager : MonoBehaviour
         if (isLightAttacking && playerStats.currentStamina > 0)
         {
             isLightAttacking = false;
-            //playerMovement.HandleAttacking();
             playerHandleAttacks.HandleLightAttack(playerInventory.rightWeapon);
             playerStats.currentStamina -= 25;
-            //playerMovement.isAttacking = true;
         }
 
         if (isHeavyAttacking && playerStats.currentStamina > 0)
         {
             isHeavyAttacking = false;
-            //playerMovement.HandleAttacking();
             playerHandleAttacks.HandleHeavyAttack(playerInventory.rightWeapon);
             playerStats.currentStamina -= 50;
+        }
+
+        if (playerStats.currentStamina <= 0)
+        {
+            playerStats.currentStamina = 0;
         }
     }
 

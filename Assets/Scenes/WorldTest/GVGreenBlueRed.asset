@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: GVGreen
+  m_Name: GVGreenBlueRed
   m_EditorClassIdentifier: 
   components:
   - {fileID: 1122516332558104244}
@@ -213,8 +213,8 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.18499681
-          value: 0
+          time: 0
+          value: 0.7686274
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -231,8 +231,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.38330916
-          value: 0
+          time: 0.6776859
+          value: 0.7727891
           inSlope: -0
           outSlope: -0
           tangentMode: 0
@@ -240,10 +240,10 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 0
-          inSlope: 0
-          outSlope: 0
+          time: 0.9999
+          value: 0.7620915
+          inSlope: -0.15850875
+          outSlope: -0.15850875
           tangentMode: 0
           weightedMode: 0
           inWeight: 0

@@ -8,16 +8,16 @@ public class EnemyStats : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
-    EnemyManager enemyManager;
+    EnemyMovement enemyMovement;
 
     //public HealthBar healthBar;
 
-    Animator animator;
+    //Animator animator;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
-        enemyManager = GetComponent<EnemyManager>();
+        //animator = GetComponent<Animator>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     void Start()
@@ -45,7 +45,7 @@ public class EnemyStats : MonoBehaviour
             currentHealth = 0;
             //animator.Play("Dying");
 
-            enemyManager.enabled = false;
+            enemyMovement.enabled = false;
         }
 
         ///healthBar.SetCurrentHealth(currentHealth);
