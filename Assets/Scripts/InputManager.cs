@@ -147,19 +147,21 @@ public class InputManager : MonoBehaviour
 
     void HandleAttackInput()
     {
-        if (isLightAttacking)
+        if (isLightAttacking && playerStats.currentStamina > 0)
         {
             isLightAttacking = false;
             //playerMovement.HandleAttacking();
             playerHandleAttacks.HandleLightAttack(playerInventory.rightWeapon);
+            playerStats.currentStamina -= 25;
             //playerMovement.isAttacking = true;
         }
 
-        if (isHeavyAttacking)
+        if (isHeavyAttacking && playerStats.currentStamina > 0)
         {
             isHeavyAttacking = false;
             //playerMovement.HandleAttacking();
             playerHandleAttacks.HandleHeavyAttack(playerInventory.rightWeapon);
+            playerStats.currentStamina -= 50;
         }
     }
 
