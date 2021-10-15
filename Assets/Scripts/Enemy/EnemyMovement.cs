@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     EnemyAnimatorManager enemyAnimatorManager;
     NavMeshAgent navMeshAgent;
     public Rigidbody rigidbody;
-    public PlayerManager currentTarget;
+    public CharacterStats currentTarget;
     public LayerMask detectionLayer;
 
     public Weapon weapon;
@@ -25,8 +25,8 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         enemyManager = GetComponent<EnemyManager>();
-        enemyAnimatorManager = GetComponent<EnemyAnimatorManager>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
+        navMeshAgent = GetComponentInChildren<NavMeshAgent>();
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -42,16 +42,16 @@ public class EnemyMovement : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            PlayerManager playerManager = colliders[i].transform.GetComponent<PlayerManager>();
+            CharacterStats characterStats = colliders[i].transform.GetComponent<CharacterStats>();
 
-            if (playerManager != null)
+            if (characterStats != null)
             {
-                Vector3 targetDirection = playerManager.transform.position - transform.position;
+                Vector3 targetDirection = characterStats.transform.position - transform.position;
                 float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
 
                 if (viewableAngle > enemyManager.minimumDetectionAngle && viewableAngle < enemyManager.maximumDetectionAngle)
                 {
-                    currentTarget = playerManager;
+                    currentTarget = characterStats;
                 }
             }
         }
@@ -76,19 +76,17 @@ public class EnemyMovement : MonoBehaviour
                 enemyAnimatorManager.animator.SetFloat("Vertical", 1, 0.1f, Time.deltaTime);
                 isAttacking = false;
             }
-            else if (distanceFromTarget < stoppingDistance)
+            else if (distanceFromTarget <= stoppingDistance)
             {
                 enemyAnimatorManager.animator.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
                 HandleAttacking();
             }
         }
 
-        //if (viewableAngle > enemyManager.maximumDetectionAngle || viewableAngle < enemyManager.minimumDetectionAngle)
-        //{
-        //    currentTarget = null;
-        //}
-
         HandleRotateTowardsTarget();
+
+        navMeshAgent.transform.localPosition = Vector3.zero;
+        navMeshAgent.transform.localRotation = Quaternion.identity;
     }
 
     void HandleRotateTowardsTarget()
@@ -96,7 +94,7 @@ public class EnemyMovement : MonoBehaviour
         //rotate manually
         if (enemyManager.isPerformingAction)
         {
-            Vector3 direction = currentTarget.transform.position;
+            Vector3 direction = currentTarget.transform.position - transform.position;
             direction.y = 0;
             direction.Normalize();
 
@@ -116,7 +114,8 @@ public class EnemyMovement : MonoBehaviour
 
             navMeshAgent.enabled = true;
             navMeshAgent.SetDestination(currentTarget.transform.position);
-            rigidbody.velocity = targetVelocity / speed;
+            //rigidbody.velocity = targetVelocity / speed;
+            rigidbody.velocity = targetVelocity;
             transform.rotation = Quaternion.Slerp(transform.rotation, navMeshAgent.transform.rotation, rotationSpeed / Time.deltaTime);
         }
     }

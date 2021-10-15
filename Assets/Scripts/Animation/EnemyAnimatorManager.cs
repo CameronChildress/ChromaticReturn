@@ -9,7 +9,7 @@ public class EnemyAnimatorManager : AllAnimatorManager
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        enemyMovement = GetComponent<EnemyMovement>();
+        enemyMovement = GetComponentInParent<EnemyMovement>();
     }
 
     private void OnAnimatorMove()

@@ -27,18 +27,11 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-        HandleCurrentAction();
-
         if (enemyStats.currentHealth <= 0)
         {
             Destroy(gameObject);
 
             WorldColorManager.Instance.OnChangeWorldProfile();
-
-            //if (volumeProfile != null)
-            //{
-                
-            //}
         }
     }
 
@@ -58,11 +51,4 @@ public class EnemyManager : MonoBehaviour
             enemyMovement.HandleMoveToTarget();
         }
     }
-
-    //public void TakeDamage()
-    //{
-    //    if (health <= 0) Destroy(gameObject);
-
-    //    health--;
-    //}
 }
