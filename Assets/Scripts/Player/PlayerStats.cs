@@ -8,13 +8,15 @@ public class PlayerStats : CharacterStats
 
     public HealthBar healthBar;
     public StaminaBar staminaBar;
-
+    public CurrencyHolder currencyHolder;
 
     public int staminaLevel = 8;
     public float maxStamina;
     public float currentStamina;
 
     public float staminaTimer = 3f;
+
+    public int ChromaOrbsObtained = 0;
 
     void Awake()
     {
@@ -57,6 +59,12 @@ public class PlayerStats : CharacterStats
     {
         currentHealth -= damage;
         healthBar.SetCurrentHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            ChromaOrbsObtained -= ChromaOrbsObtained;
+            currencyHolder.SetAmount(ChromaOrbsObtained);
+        }
     }
 
     public void UseStamina(float stamina)
@@ -81,5 +89,11 @@ public class PlayerStats : CharacterStats
             currentStamina += (stamina * Time.deltaTime);
             staminaBar.SetCurrentStamina(currentStamina);
         }
+    }
+
+    public void AddChromaOrbs(int orbs)
+    {
+        ChromaOrbsObtained += orbs;
+        currencyHolder.SetAmount(ChromaOrbsObtained);
     }
 }

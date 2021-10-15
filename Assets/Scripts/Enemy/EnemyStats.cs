@@ -5,14 +5,18 @@ using UnityEngine;
 public class EnemyStats : CharacterStats
 {
     EnemyMovement enemyMovement;
+    PlayerStats playerStats;
 
-    //public HealthBar healthBar;
+    public HealthBar healthBar;
+
+    int ChromaOrbsToGive = 100;
 
     //Animator animator;
 
     private void Awake()
     {
         //animator = GetComponent<Animator>();
+        playerStats = FindObjectOfType<PlayerStats>();
         enemyMovement = GetComponent<EnemyMovement>();
     }
 
@@ -21,7 +25,7 @@ public class EnemyStats : CharacterStats
         maxHealth = SetMaxHealthFromHealthLevel();
         currentHealth = maxHealth;
 
-        //healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     float SetMaxHealthFromHealthLevel()
@@ -33,17 +37,18 @@ public class EnemyStats : CharacterStats
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.SetCurrentHealth(currentHealth);
 
         //animator.Play("Hurt");
 
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            playerStats.AddChromaOrbs(ChromaOrbsToGive);
+
             //animator.Play("Dying");
 
             enemyMovement.enabled = false;
         }
-
-        ///healthBar.SetCurrentHealth(currentHealth);
     }
 }
