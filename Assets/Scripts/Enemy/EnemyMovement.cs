@@ -59,6 +59,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void HandleMoveToTarget()
     {
+        if (enemyManager.isPerformingAction) return;
+
         Vector3 targetDirection = currentTarget.transform.position - transform.position;
         distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
         float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
@@ -79,7 +81,7 @@ public class EnemyMovement : MonoBehaviour
             else if (distanceFromTarget <= stoppingDistance)
             {
                 enemyAnimatorManager.animator.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
-                HandleAttacking();
+                //HandleAttacking();
             }
         }
 
@@ -120,13 +122,13 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void HandleAttacking()
-    {
-        if (!isAttacking)
-        {
-            enemyAnimatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
-            isAttacking = true;
-            weapon.ToggleCollider();
-        }
-    }
+    //void HandleAttacking()
+    //{
+    //    if (!isAttacking)
+    //    {
+    //        enemyAnimatorManager.PlayTargetAnimation("SwordOutwardSlash", true);
+    //        isAttacking = true;
+    //        weapon.ToggleCollider();
+    //    }
+    //}
 }

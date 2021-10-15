@@ -2047,7 +2047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &152557791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9156,9 +9156,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: fca1177c9f4752841aa2781e5a854b50, type: 2}
   isPerformingAction: 0
+  enemyAttacks: []
+  currentAttack: {fileID: 0}
   detectionRadius: 20
   minimumDetectionAngle: -50
   maximumDetectionAngle: 50
+  currentRecoveryTime: 0
 --- !u!195 &607192742
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -27685,9 +27688,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeProfile: {fileID: 11400000, guid: 9ca7de4c54e064044940d665435fe345, type: 2}
   isPerformingAction: 0
+  enemyAttacks:
+  - {fileID: 11400000, guid: 2b2730ac60d3fd043957145fc7de4e3c, type: 2}
+  - {fileID: 11400000, guid: 050cabc6fec86ae46b740746a0f072c2, type: 2}
+  currentAttack: {fileID: 0}
   detectionRadius: 20
   minimumDetectionAngle: -50
   maximumDetectionAngle: 50
+  currentRecoveryTime: 0
 --- !u!136 &1804146611
 CapsuleCollider:
   m_ObjectHideFlags: 0
