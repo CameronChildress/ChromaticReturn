@@ -151,14 +151,14 @@ public class InputManager : MonoBehaviour
         {
             isLightAttacking = false;
             playerHandleAttacks.HandleLightAttack(playerInventory.rightWeapon);
-            playerStats.currentStamina -= 25;
+            playerStats.UseStamina(25);
         }
 
         if (isHeavyAttacking && playerStats.currentStamina > 0)
         {
             isHeavyAttacking = false;
             playerHandleAttacks.HandleHeavyAttack(playerInventory.rightWeapon);
-            playerStats.currentStamina -= 50;
+            playerStats.UseStamina(50);
         }
 
         if (playerStats.currentStamina <= 0)

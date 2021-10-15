@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
+    PlayerMovement playerMovement;
+
     public HealthBar healthBar;
     public StaminaBar staminaBar;
 
+
+    public int staminaLevel = 8;
+    public float maxStamina;
+    public float currentStamina;
+
     public float staminaTimer = 3f;
+
+    void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     void Start()
     {
@@ -49,7 +61,14 @@ public class PlayerStats : CharacterStats
 
     public void UseStamina(float stamina)
     {
-        currentStamina -= (stamina * Time.deltaTime);
+        if (playerMovement.isSprinting)
+        {
+            currentStamina -= (stamina * Time.deltaTime);
+        }
+        else
+        {
+            currentStamina -= stamina;
+        }
         staminaBar.SetCurrentStamina(currentStamina);
 
         staminaTimer = 3f;
