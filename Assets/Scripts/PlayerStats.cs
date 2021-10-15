@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
     public HealthBar healthBar;
     public StaminaBar staminaBar;
 
+    public float staminaTimer = 3f;
+
     void Start()
     {
         maxHealth = SetMaxHealthFromHealthLevel();
@@ -26,9 +28,13 @@ public class PlayerStats : MonoBehaviour
         staminaBar.SetMaxStamina(maxStamina);
     }
 
-    private void Update()
+    void Update()
     {
         //healthBar.transform.localScale = new Vector3(healthLevel / 10, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+        if (staminaTimer > 0)
+        {
+            staminaTimer -= Time.deltaTime;
+        }
     }
 
     float SetMaxHealthFromHealthLevel()
@@ -53,11 +59,13 @@ public class PlayerStats : MonoBehaviour
     {
         currentStamina -= (stamina * Time.deltaTime);
         staminaBar.SetCurrentStamina(currentStamina);
+
+        staminaTimer = 3f;
     }
 
     public void ReturnStamina(float stamina)
     {
-        if (currentStamina < maxStamina)
+        if (currentStamina < maxStamina && staminaTimer < 0)
         {
             currentStamina += (stamina * Time.deltaTime);
             staminaBar.SetCurrentStamina(currentStamina);

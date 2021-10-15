@@ -2469,6 +2469,7 @@ MonoBehaviour:
   currentStamina: 0
   healthBar: {fileID: 650544910}
   staminaBar: {fileID: 0}
+  staminaTimer: 3
 --- !u!114 &173425377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4247,6 +4248,7 @@ MonoBehaviour:
   vpOnlyGreen: {fileID: 11400000, guid: 0a64ac12ae6f1f9429c430c487fb5192, type: 2}
   vpGreenBlue: {fileID: 11400000, guid: 9ca7de4c54e064044940d665435fe345, type: 2}
   vpGreenBlueRed: {fileID: 11400000, guid: 96073cf674e2555498991592f8b1d028, type: 2}
+  currentProfile: {fileID: 0}
 --- !u!4 &326182368
 Transform:
   m_ObjectHideFlags: 0
