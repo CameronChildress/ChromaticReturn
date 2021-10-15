@@ -39,4 +39,10 @@ public class PlayerManager : MonoBehaviour
         playerMovement.isJumping = animator.GetBool("isJumping");
         animator.SetBool("isGrounded", playerMovement.isGrounded);
     }
+
+    //public void CheckForInteractable()
+    //{
+    //    RaycastHit hit;
+    //    if(Physics.SphereCast(transform.position, 0.3f, transform.forward, out hit, 1f, cameraManager))
+    //}
 }
