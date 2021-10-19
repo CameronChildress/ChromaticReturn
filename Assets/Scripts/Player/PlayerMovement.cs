@@ -235,6 +235,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animatorManager.PlayTargetAnimation("LightAttack01", true);
             isLightAttacking = true;
+
             //weapon.ToggleCollider();
             //audio?.Play();
         }

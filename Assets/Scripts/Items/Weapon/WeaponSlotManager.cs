@@ -61,14 +61,14 @@ public class WeaponSlotManager : MonoBehaviour
 
     public void OpenRightWeaponCollider()
     {
-        rightWeaponCollider.ToggleCollider();
+        rightWeaponCollider?.ToggleCollider();
 
         if (rightWeaponCollider == null) return;
     }
 
     public void OpenLeftWeaponCollider()
     {
-        leftWeaponCollider.ToggleCollider();
+        leftWeaponCollider?.ToggleCollider();
 
         if (leftWeaponCollider == null) return;
     }
@@ -77,13 +77,13 @@ public class WeaponSlotManager : MonoBehaviour
     {
         if (rightWeaponCollider == null) return;
 
-        rightWeaponCollider.ToggleOffCollider();
+        rightWeaponCollider?.ToggleOffCollider();
     }
 
     public void CloseLeftWeaponCollider()
     {
         if (leftWeaponCollider == null) return;
 
-        leftWeaponCollider.ToggleOffCollider();
+        leftWeaponCollider?.ToggleOffCollider();
     }
 }
