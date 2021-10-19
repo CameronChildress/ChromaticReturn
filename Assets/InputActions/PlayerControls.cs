@@ -265,6 +265,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad18d6a4-503a-4dc2-8e70-340d9c407c44"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -375,6 +383,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HeavyAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fdac4d0-5a56-4069-94aa-6cf87f8a209e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d7978f1-8674-4477-818e-13a7f3044614"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -523,6 +553,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerActions_ALT = m_PlayerActions.FindAction("ALT", throwIfNotFound: true);
         m_PlayerActions_LightAttack = m_PlayerActions.FindAction("LightAttack", throwIfNotFound: true);
         m_PlayerActions_HeavyAttack = m_PlayerActions.FindAction("HeavyAttack", throwIfNotFound: true);
+        m_PlayerActions_PickUp = m_PlayerActions.FindAction("PickUp", throwIfNotFound: true);
         // Player Quick Slots
         m_PlayerQuickSlots = asset.FindActionMap("Player Quick Slots", throwIfNotFound: true);
         m_PlayerQuickSlots_DPadUp = m_PlayerQuickSlots.FindAction("D-Pad Up", throwIfNotFound: true);
@@ -625,6 +656,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerActions_ALT;
     private readonly InputAction m_PlayerActions_LightAttack;
     private readonly InputAction m_PlayerActions_HeavyAttack;
+    private readonly InputAction m_PlayerActions_PickUp;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -635,6 +667,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @ALT => m_Wrapper.m_PlayerActions_ALT;
         public InputAction @LightAttack => m_Wrapper.m_PlayerActions_LightAttack;
         public InputAction @HeavyAttack => m_Wrapper.m_PlayerActions_HeavyAttack;
+        public InputAction @PickUp => m_Wrapper.m_PlayerActions_PickUp;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -662,6 +695,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @HeavyAttack.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnHeavyAttack;
                 @HeavyAttack.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnHeavyAttack;
                 @HeavyAttack.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnHeavyAttack;
+                @PickUp.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnPickUp;
+                @PickUp.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnPickUp;
+                @PickUp.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnPickUp;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -684,6 +720,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @HeavyAttack.started += instance.OnHeavyAttack;
                 @HeavyAttack.performed += instance.OnHeavyAttack;
                 @HeavyAttack.canceled += instance.OnHeavyAttack;
+                @PickUp.started += instance.OnPickUp;
+                @PickUp.performed += instance.OnPickUp;
+                @PickUp.canceled += instance.OnPickUp;
             }
         }
     }
@@ -758,6 +797,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnALT(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
         void OnHeavyAttack(InputAction.CallbackContext context);
+        void OnPickUp(InputAction.CallbackContext context);
     }
     public interface IPlayerQuickSlotsActions
     {

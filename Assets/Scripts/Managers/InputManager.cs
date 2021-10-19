@@ -27,6 +27,8 @@ public class InputManager : MonoBehaviour
     public bool altInput;
     public bool jumpInput;
 
+    public bool pickUpInput;
+
     public bool dPadUp;
     public bool dPadDown;
     public bool dPadLeft;
@@ -67,6 +69,8 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerQuickSlots.DPadDown.performed += i => dPadDown = true;
             playerControls.PlayerQuickSlots.DPadLeft.performed += i => dPadLeft = true;
             playerControls.PlayerQuickSlots.DPadRight.performed += i => dPadRight = true;
+
+            playerControls.PlayerActions.PickUp.performed += i => pickUpInput = true;
         }
 
         playerControls.Enable();
@@ -87,6 +91,7 @@ public class InputManager : MonoBehaviour
         HandleAttackInput();
 
         HandleQuickSlotInput();
+        HandleInteractableInput();
     }
 
     void HandleMovementInput()
@@ -179,5 +184,10 @@ public class InputManager : MonoBehaviour
             playerInventory.ChangeLeftWeapon();
             dPadLeft = false;
         }
+    }
+
+    void HandleInteractableInput()
+    {
+        //pickUpInput = false;
     }
 }

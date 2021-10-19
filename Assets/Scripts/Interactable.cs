@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 
     public virtual void Interact(PlayerManager playerManager)

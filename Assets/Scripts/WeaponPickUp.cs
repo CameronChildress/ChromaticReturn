@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponPickUp : Interactable
 {
@@ -11,7 +12,7 @@ public class WeaponPickUp : Interactable
         base.Interact(playerManager);
 
         //pick up weapon and add it to player inventory
-
+        PickUpItem(playerManager);
     }
 
     void PickUpItem(PlayerManager playerManager)
@@ -24,8 +25,13 @@ public class WeaponPickUp : Interactable
         animatorManager = playerManager.GetComponentInChildren<AnimatorManager>();
 
         playerMovement.rigidbody.velocity = Vector3.zero;
-        animatorManager.PlayTargetAnimation("PickUpItem", true);
+        //animatorManager.PlayTargetAnimation("PickUpItem", true);
 
         playerInventory.weaponsInventory.Add(weapon);
+        playerManager.itemInteractableGameObject.SetActive(true);
+        playerManager.itemInteractableGameObject.GetComponentInChildren<Text>().text = weapon.itemName;
+        playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = weapon.itemIcon.texture;
+
+        Destroy(gameObject);
     }
 }
