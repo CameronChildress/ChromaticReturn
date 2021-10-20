@@ -29,7 +29,10 @@ public class OrbsPickUp : Interactable
         //animatorManager.PlayTargetAnimation("PickUpItem", true);
 
         playerManager.itemInteractableGameObject.SetActive(true);
+        playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().enabled = false;
+        GameObject.Find("ItemUIBackground").SetActive(false);
         playerManager.itemInteractableGameObject.GetComponentInChildren<Text>().text = playerManager.GetComponent<PlayerStats>().lostOrbs.ToString();
+        playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = null;
 
         orbAmount = playerManager.GetComponent<PlayerStats>().lostOrbs;
         playerManager.GetComponent<PlayerStats>().AddChromaOrbs(orbAmount);
