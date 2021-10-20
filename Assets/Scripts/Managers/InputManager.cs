@@ -200,13 +200,13 @@ public class InputManager : MonoBehaviour
 
     void HandleInventoryInput()
     {
-        playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = false;
-        playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         if (inventoryInput)
         {
+            playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = false;
+            playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 

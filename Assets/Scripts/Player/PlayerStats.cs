@@ -17,6 +17,7 @@ public class PlayerStats : CharacterStats
     public float staminaTimer = 3f;
 
     public int ChromaOrbsObtained = 0;
+    public int lostOrbs = 0;
 
     void Awake()
     {
@@ -62,6 +63,7 @@ public class PlayerStats : CharacterStats
 
         if (currentHealth <= 0)
         {
+            lostOrbs = ChromaOrbsObtained;
             ChromaOrbsObtained -= ChromaOrbsObtained;
             currencyHolder.SetAmount(ChromaOrbsObtained);
         }
