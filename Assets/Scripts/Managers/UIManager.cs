@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject selectWindow;
+    public GameObject hudWindow;
+
+    public void OpenSelectWindow()
     {
-        
+        selectWindow.SetActive(true);
+        hudWindow.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CloseSelectWindow()
     {
-        
+        selectWindow.SetActive(false);
+        hudWindow.SetActive(true);
     }
 }

@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     PlayerMovement playerMovement;
     AnimatorManager animatorManager;
     PlayerStats playerStats;
+    UIManager uiManager;
 
 
     Vector2 movementInput;
@@ -28,6 +29,9 @@ public class InputManager : MonoBehaviour
     public bool jumpInput;
 
     public bool pickUpInput;
+    public bool inventoryInput;
+
+    public bool inventoryFlag;
 
     public bool dPadUp;
     public bool dPadDown;
@@ -44,6 +48,7 @@ public class InputManager : MonoBehaviour
         playerHandleAttacks = GetComponent<PlayerHandleAttacks>();
         playerInventory = GetComponent<PlayerInventory>();
         playerStats = GetComponent<PlayerStats>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     void OnEnable()
@@ -71,6 +76,7 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerQuickSlots.DPadRight.performed += i => dPadRight = true;
 
             playerControls.PlayerActions.PickUp.performed += i => pickUpInput = true;
+            playerControls.PlayerActions.Inventory.performed += i => inventoryInput = true;
         }
 
         playerControls.Enable();
@@ -91,7 +97,8 @@ public class InputManager : MonoBehaviour
         HandleAttackInput();
 
         HandleQuickSlotInput();
-        HandleInteractableInput();
+        //HandleInteractableInput();
+        HandleInventoryInput();
     }
 
     void HandleMovementInput()
@@ -189,5 +196,32 @@ public class InputManager : MonoBehaviour
     void HandleInteractableInput()
     {
         //pickUpInput = false;
+    }
+
+    void HandleInventoryInput()
+    {
+        playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = false;
+        playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (inventoryInput)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            inventoryFlag = !inventoryFlag;
+
+            if (inventoryFlag)
+            {
+                uiManager.OpenSelectWindow();
+            }
+            else
+            {
+                uiManager.CloseSelectWindow();
+            }
+        }
+
+        inventoryInput = false;
     }
 }
