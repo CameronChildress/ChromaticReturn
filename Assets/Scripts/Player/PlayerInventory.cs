@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     WeaponSlotManager weaponSlotManager;
+    ConsumableSlotManager consumableSlotManager;
+
+    public ConsumableItem consumableItem;
 
     public WeaponItem rightWeapon;
     public WeaponItem leftWeapon;
@@ -13,21 +16,44 @@ public class PlayerInventory : MonoBehaviour
     public WeaponItem[] weaponsInRightHandSlots = new WeaponItem[1];
     public WeaponItem[] weaponsInLeftHandSlots = new WeaponItem[1];
 
+    public ConsumableItem[] consumableItemsInBottomQuickSlot = new ConsumableItem[1];
+
     public int currentRightWeaponIndex = -1;
     public int currentLeftWeaponIndex = -1;
 
     public List<WeaponItem> weaponsInventory;
-    public List<Item> itemsInventory;
+
+    public int currentConsumableIndex = -1;
+    public List<ConsumableItem> consumableItemsInventory;
 
     private void Awake()
     {
         weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
+        consumableSlotManager = GetComponentInChildren<ConsumableSlotManager>();
     }
 
     private void Start()
     {
         rightWeapon = unarmedWeapon;
         leftWeapon = unarmedWeapon;
+    }
+
+    public void ChangeConsumableItem()
+    {
+        currentConsumableIndex++;
+
+        if (currentConsumableIndex == 0 && weaponsInRightHandSlots[0] != null)
+        {
+            consumableItem = consumableItemsInBottomQuickSlot[currentConsumableIndex];
+            consumableSlotManager.LoadConsumableInSlot(consumableItemsInBottomQuickSlot[currentConsumableIndex]);
+        }
+
+        if (currentConsumableIndex > consumableItemsInBottomQuickSlot.Length - 1)
+        {
+            currentConsumableIndex = -1;
+            consumableItem = null;
+            consumableSlotManager.LoadConsumableInSlot(null);
+        }
     }
 
     public void ChangeRightWeapon()
