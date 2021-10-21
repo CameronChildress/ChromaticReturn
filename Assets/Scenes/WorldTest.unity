@@ -19461,6 +19461,7 @@ GameObject:
   - component: {fileID: 1592518611}
   - component: {fileID: 1592518613}
   - component: {fileID: 1592518612}
+  - component: {fileID: 1592518614}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -19525,6 +19526,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592518610}
   m_CullTransparentMesh: 1
+--- !u!114 &1592518614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592518610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 3
+  m_AspectRatio: 0.5
 --- !u!1 &1601085480
 GameObject:
   m_ObjectHideFlags: 0
@@ -30364,6 +30379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2049776903}
+  - component: {fileID: 2049776904}
   m_Layer: 5
   m_Name: WeaponInventorySlot
   m_TagString: Untagged
@@ -30391,6 +30407,19 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: -50}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2049776904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049776902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a60a411bd33a194db1b75741af136dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1592518612}
 --- !u!1001 &2055504073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31472,6 +31501,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+--- !u!114 &207231844218428617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+  m_PrefabInstance: {fileID: 207231844218428616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520272102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858f39f62e691ba4bbd14bc873f288d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &277718092783761194
 Transform:
   m_ObjectHideFlags: 0
@@ -40439,6 +40479,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectWindow: {fileID: 409284533}
   hudWindow: {fileID: 1029788088}
+  weaponInventoryWindow: {fileID: 1281789768}
+  playerInventory: {fileID: 207231844218428617}
+  weaponInventorySlotParent: {fileID: 1999636406}
+  weaponInventorySlotPrefab: {fileID: 2049776902}
 --- !u!224 &5249860487233525645
 RectTransform:
   m_ObjectHideFlags: 0

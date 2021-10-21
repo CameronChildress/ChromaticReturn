@@ -215,10 +215,12 @@ public class InputManager : MonoBehaviour
             if (inventoryFlag)
             {
                 uiManager.OpenSelectWindow();
+                uiManager.UpdateUI();
             }
             else
             {
                 uiManager.CloseSelectWindow();
+                uiManager.CloseAllInventoryWindows();
             }
         }
 
