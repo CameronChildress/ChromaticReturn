@@ -31432,6 +31432,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 207231845452242467, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: lostOrbs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207231845452242467, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 5249860486575201643}
@@ -31443,6 +31447,50 @@ PrefabInstance:
       propertyPath: currencyHolder
       value: 
       objectReference: {fileID: 2319525544893836843}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: leftWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 422c567952aead84caaca22d16d743d4, type: 2}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: currentLeftWeaponIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: currentRightWeaponIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInLeftHandSlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInRightHandSlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInLeftHandSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8efd78df1129cab44bbdc40bb85131cb, type: 2}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInLeftHandSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 422c567952aead84caaca22d16d743d4, type: 2}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInLeftHandSlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e54988ed99a715648bcfd3844ae40ff8, type: 2}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInRightHandSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8efd78df1129cab44bbdc40bb85131cb, type: 2}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInRightHandSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 422c567952aead84caaca22d16d743d4, type: 2}
+    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
+      propertyPath: weaponsInRightHandSlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e54988ed99a715648bcfd3844ae40ff8, type: 2}
     - target: {fileID: 207231845452242469, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
       propertyPath: interactableUIGameObject
       value: 
