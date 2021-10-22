@@ -8,9 +8,16 @@ public class UIManager : MonoBehaviour
     public GameObject selectWindow;
     public GameObject hudWindow;
     public GameObject weaponInventoryWindow;
+    public GameObject equipmentWindow;
 
     public PlayerInventory playerInventory;
-    EquipmentWindowUI equipmentWindowUI;
+    public EquipmentWindowUI equipmentWindowUI;
+
+    [Header("Equipment Window Slot Selected")]
+    public bool rightHandSlot1Selected;
+    public bool rightHandSlot2Selected;
+    public bool leftHandSlot1Selected;
+    public bool leftHandSlot2Selected;
 
     [Header("Weapon Inventory")]
     public Transform weaponInventorySlotParent;
@@ -19,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        equipmentWindowUI = FindObjectOfType<EquipmentWindowUI>();
+    
     }
 
     void Start()
@@ -65,6 +72,16 @@ public class UIManager : MonoBehaviour
 
     public void CloseAllInventoryWindows()
     {
+        ResetAllSelectedSlots();
         weaponInventoryWindow.SetActive(false);
+        weaponInventoryWindow.SetActive(false);
+    }
+
+    public void ResetAllSelectedSlots()
+    {
+        rightHandSlot1Selected = false;
+        rightHandSlot2Selected = false;
+        leftHandSlot1Selected = false;
+        leftHandSlot2Selected = false;
     }
 }

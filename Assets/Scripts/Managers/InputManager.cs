@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     AnimatorManager animatorManager;
     PlayerStats playerStats;
     UIManager uiManager;
+    CameraManager cameraManager;
 
 
     Vector2 movementInput;
@@ -28,10 +29,13 @@ public class InputManager : MonoBehaviour
     public bool altInput;
     public bool jumpInput;
 
+    public bool lockOnInput;
+
     public bool pickUpInput;
     public bool inventoryInput;
 
     public bool inventoryFlag;
+    public bool lockOnFlag;
 
     public bool dPadUp;
     public bool dPadDown;
@@ -49,6 +53,7 @@ public class InputManager : MonoBehaviour
         playerInventory = GetComponent<PlayerInventory>();
         playerStats = GetComponent<PlayerStats>();
         uiManager = FindObjectOfType<UIManager>();
+        cameraManager = FindObjectOfType<CameraManager>();
     }
 
     void OnEnable()
@@ -77,6 +82,8 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerActions.PickUp.performed += i => pickUpInput = true;
             playerControls.PlayerActions.Inventory.performed += i => inventoryInput = true;
+
+            playerControls.PlayerActions.LockOn.performed += i => lockOnInput = true;
         }
 
         playerControls.Enable();
@@ -99,6 +106,8 @@ public class InputManager : MonoBehaviour
         HandleQuickSlotInput();
         //HandleInteractableInput();
         HandleInventoryInput();
+
+        HandleLockOnInput();
     }
 
     void HandleMovementInput()
@@ -230,5 +239,29 @@ public class InputManager : MonoBehaviour
         }
 
         inventoryInput = false;
+    }
+
+    void HandleLockOnInput()
+    {
+        if (lockOnInput && !lockOnFlag)
+        {
+            cameraManager.ClearLockOnTarget();
+            lockOnInput = false;
+
+            cameraManager.HandleLockOn();
+
+            if (cameraManager.nearestLockOnTarget != null)
+            {
+                cameraManager.currentLockOnTarget = cameraManager.nearestLockOnTarget;
+                lockOnFlag = true;
+            }
+        }
+        else if (lockOnInput && lockOnFlag)
+        {
+            lockOnInput = false;
+            lockOnFlag = false;
+
+            cameraManager.ClearLockOnTarget();
+        }
     }
 }

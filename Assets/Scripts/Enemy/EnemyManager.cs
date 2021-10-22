@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor.Rendering.PostProcessing;
 using UnityEngine.AI;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : CharacterManager
 {
     EnemyMovement enemyMovement;
     EnemyStats enemyStats;
