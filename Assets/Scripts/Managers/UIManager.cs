@@ -10,15 +10,22 @@ public class UIManager : MonoBehaviour
     public GameObject weaponInventoryWindow;
 
     public PlayerInventory playerInventory;
+    EquipmentWindowUI equipmentWindowUI;
 
     [Header("Weapon Inventory")]
     public Transform weaponInventorySlotParent;
     public GameObject weaponInventorySlotPrefab;
     WeaponInventorySlot[] weaponInventorySlots;
 
+    void Awake()
+    {
+        equipmentWindowUI = FindObjectOfType<EquipmentWindowUI>();
+    }
+
     void Start()
     {
         weaponInventorySlots = weaponInventorySlotParent.GetComponentsInChildren<WeaponInventorySlot>();
+        equipmentWindowUI.LoadWeaponsOnEquipmentScreen(playerInventory);
     }
 
     public void UpdateUI()

@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     ConsumableSlotManager consumableSlotManager;
 
     public ConsumableItem consumableItem;
+    public ConsumableItem emptyConsumable;
 
     public WeaponItem rightWeapon;
     public WeaponItem leftWeapon;
@@ -42,17 +43,30 @@ public class PlayerInventory : MonoBehaviour
     {
         currentConsumableIndex++;
 
-        if (currentConsumableIndex == 0 && weaponsInRightHandSlots[0] != null)
+        if (currentConsumableIndex == 0 && consumableItemsInBottomQuickSlot[0] != null)
         {
             consumableItem = consumableItemsInBottomQuickSlot[currentConsumableIndex];
             consumableSlotManager.LoadConsumableInSlot(consumableItemsInBottomQuickSlot[currentConsumableIndex]);
+        }
+        else if (currentConsumableIndex == 0 && consumableItemsInBottomQuickSlot[0] == null)
+        {
+            currentConsumableIndex++;
+        }
+        else if (currentConsumableIndex == 1 && consumableItemsInBottomQuickSlot[1] != null)
+        {
+            consumableItem = consumableItemsInBottomQuickSlot[currentConsumableIndex];
+            consumableSlotManager.LoadConsumableInSlot(consumableItemsInBottomQuickSlot[currentConsumableIndex]);
+        }
+        else
+        {
+            currentRightWeaponIndex++;
         }
 
         if (currentConsumableIndex > consumableItemsInBottomQuickSlot.Length - 1)
         {
             currentConsumableIndex = -1;
-            consumableItem = null;
-            consumableSlotManager.LoadConsumableInSlot(null);
+            consumableItem = emptyConsumable;
+            consumableSlotManager.LoadConsumableInSlot(emptyConsumable);
         }
     }
 

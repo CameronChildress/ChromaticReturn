@@ -191,11 +191,11 @@ public class InputManager : MonoBehaviour
             playerInventory.ChangeLeftWeapon();
             dPadLeft = false;
         }
-        if (dPadDown)
-        {
-            playerInventory.ChangeConsumableItem();
-            dPadDown = false;
-        }
+        //if (dPadDown)
+        //{
+        //    playerInventory.ChangeConsumableItem();
+        //    dPadDown = false;
+        //}
     }
 
     void HandleInteractableInput()
