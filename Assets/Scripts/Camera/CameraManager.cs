@@ -89,22 +89,25 @@ public class CameraManager : MonoBehaviour
         }
         else
         {
-            float velocity = 0;
+            if (currentLockOnTarget != null)
+            {
+                float velocity = 0;
 
-            Vector3 direction = currentLockOnTarget.position - transform.position;
-            direction.Normalize();
-            direction.y = 0;
+                Vector3 direction = currentLockOnTarget.position - transform.position;
+                direction.Normalize();
+                direction.y = 0;
 
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = targetRotation;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = targetRotation;
 
-            direction = currentLockOnTarget.position - cameraPivot.transform.position;
-            direction.Normalize();
+                direction = currentLockOnTarget.position - cameraPivot.transform.position;
+                direction.Normalize();
 
-            targetRotation = Quaternion.LookRotation(direction);
-            Vector3 eulerAngle = targetRotation.eulerAngles;
-            eulerAngle.y = 0;
-            cameraPivot.localEulerAngles = eulerAngle;
+                targetRotation = Quaternion.LookRotation(direction);
+                Vector3 eulerAngle = targetRotation.eulerAngles;
+                eulerAngle.y = 0;
+                cameraPivot.localEulerAngles = eulerAngle;
+            }
         }
     }
 
