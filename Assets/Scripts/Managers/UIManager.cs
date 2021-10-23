@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
     public void CloseAllInventoryWindows()
     {
         ResetAllSelectedSlots();
-        weaponInventoryWindow.SetActive(false);
+        equipmentWindow.SetActive(false);
         weaponInventoryWindow.SetActive(false);
     }
 
