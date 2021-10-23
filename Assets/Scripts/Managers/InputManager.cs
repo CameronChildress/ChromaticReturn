@@ -30,6 +30,8 @@ public class InputManager : MonoBehaviour
     public bool jumpInput;
 
     public bool lockOnInput;
+    public bool lockOnLeftInput;
+    public bool lockOnRightInput;
 
     public bool pickUpInput;
     public bool inventoryInput;
@@ -84,6 +86,9 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Inventory.performed += i => inventoryInput = true;
 
             playerControls.PlayerActions.LockOn.performed += i => lockOnInput = true;
+
+            playerControls.PlayerMovement.LockOnTargetLeft.performed += i => lockOnLeftInput = true;
+            playerControls.PlayerMovement.LockOnTargetRight.performed += i => lockOnRightInput = true;
         }
 
         playerControls.Enable();
@@ -245,9 +250,7 @@ public class InputManager : MonoBehaviour
     {
         if (lockOnInput && !lockOnFlag)
         {
-            cameraManager.ClearLockOnTarget();
             lockOnInput = false;
-
             cameraManager.HandleLockOn();
 
             if (cameraManager.nearestLockOnTarget != null)
@@ -262,6 +265,25 @@ public class InputManager : MonoBehaviour
             lockOnFlag = false;
 
             cameraManager.ClearLockOnTarget();
+        }
+
+        if (lockOnFlag && lockOnLeftInput)
+        {
+            lockOnLeftInput = false;
+            cameraManager.HandleLockOn();
+            if (cameraManager.leftLockOnTarget != null)
+            {
+                cameraManager.currentLockOnTarget = cameraManager.leftLockOnTarget;
+            }
+        }
+        else if (lockOnFlag && lockOnRightInput)
+        {
+            lockOnRightInput = false;
+            cameraManager.HandleLockOn();
+            if (cameraManager.rightLockOnTarget != null)
+            {
+                cameraManager.currentLockOnTarget = cameraManager.rightLockOnTarget;
+            }
         }
     }
 }
