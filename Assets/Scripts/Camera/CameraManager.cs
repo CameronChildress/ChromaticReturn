@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class CameraManager : MonoBehaviour
     public Transform nearestLockOnTarget;
     public Transform leftLockOnTarget;
     public Transform rightLockOnTarget;
+
+    public GameObject lockOnPoint;
 
     void Awake()
     {
@@ -191,7 +194,6 @@ public class CameraManager : MonoBehaviour
                 }
             }
         }
-       
     }
 
     public void ClearLockOnTarget()
