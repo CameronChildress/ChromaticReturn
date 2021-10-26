@@ -36,8 +36,6 @@ public class PlayerStats : CharacterStats
         maxStamina = SetMaxStaminaFromStaminaLevel();
         currentStamina = maxStamina;
         staminaBar.SetMaxStamina(maxStamina);
-
-
     }
 
     void Update()
@@ -71,6 +69,10 @@ public class PlayerStats : CharacterStats
             lostOrbs = ChromaOrbsObtained;
             ChromaOrbsObtained -= ChromaOrbsObtained;
             currencyHolder.SetAmount(ChromaOrbsObtained);
+
+            GameManager.Instance.Load();
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
         }
     }
 

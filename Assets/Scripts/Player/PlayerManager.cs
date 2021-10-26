@@ -6,6 +6,7 @@ public class PlayerManager : CharacterManager
 {
     InputManager inputManager;
     PlayerMovement playerMovement;
+    PlayerStats playerStats;
     CameraManager cameraManager;
     Animator animator;
 
@@ -16,6 +17,8 @@ public class PlayerManager : CharacterManager
     public bool isInteracting;
     public bool isUsingRootMotion;
 
+    public float respawnTimer = 2f;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -23,6 +26,7 @@ public class PlayerManager : CharacterManager
         playerMovement = GetComponent<PlayerMovement>();
         animator = GetComponentInChildren<Animator>();
         interactableUI = FindObjectOfType<InteractableUI>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void Update()

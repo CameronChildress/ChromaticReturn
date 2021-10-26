@@ -6,6 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public PlayerStats playerStats;
 
+    public static GameManager Instance { get { return instance; } }
+    static GameManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void Save()
     {
         SaveSystem.SavePlayer(playerStats);
@@ -24,6 +32,8 @@ public class GameManager : MonoBehaviour
         playerStats.transform.position = playerPosition;
 
         playerStats.healthLevel = playerData.healthLevel;
+        playerStats.maxHealth = playerData.maxHealth;
+        playerStats.currentHealth = playerData.currentHealth;
         playerStats.staminaLevel = playerData.staminaLevel;
         playerStats.ChromaOrbsObtained = playerData.chromaOrbsObtained;
         playerStats.lostOrbs = playerData.lostChromaOrbs;
