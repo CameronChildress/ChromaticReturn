@@ -13,11 +13,14 @@ public class PlayerStats : CharacterStats
     public int staminaLevel = 8;
     public float maxStamina;
     public float currentStamina;
-
     public float staminaTimer = 3f;
 
     public int ChromaOrbsObtained = 0;
     public int lostOrbs = 0;
+
+    public int Vitality;
+    public int Endurance;
+    public int Strength;
 
     void Awake()
     {
@@ -33,6 +36,8 @@ public class PlayerStats : CharacterStats
         maxStamina = SetMaxStaminaFromStaminaLevel();
         currentStamina = maxStamina;
         staminaBar.SetMaxStamina(maxStamina);
+
+
     }
 
     void Update()

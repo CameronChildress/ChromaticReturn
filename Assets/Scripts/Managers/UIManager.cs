@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject hudWindow;
     public GameObject weaponInventoryWindow;
     public GameObject equipmentWindow;
+    public GameObject gameOptionsWindow;
 
     public PlayerInventory playerInventory;
     public EquipmentWindowUI equipmentWindowUI;
@@ -75,6 +76,7 @@ public class UIManager : MonoBehaviour
         ResetAllSelectedSlots();
         equipmentWindow.SetActive(false);
         weaponInventoryWindow.SetActive(false);
+        gameOptionsWindow.SetActive(false);
     }
 
     public void ResetAllSelectedSlots()
