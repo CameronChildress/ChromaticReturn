@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : CharacterStats
 {
@@ -8,6 +9,7 @@ public class PlayerStats : CharacterStats
 
     public HealthBar healthBar;
     public StaminaBar staminaBar;
+    public UIManager uiManager;
     public CurrencyHolder currencyHolder;
 
     public int staminaLevel = 8;
@@ -21,6 +23,12 @@ public class PlayerStats : CharacterStats
     public int Vitality;
     public int Endurance;
     public int Strength;
+
+    public float respawnTimer = 3f;
+
+    public float fadeInTimer = 3f;
+    public float fadeOutTimer = 3f;
+    public float fadeTimer = 0f;
 
     void Awake()
     {
@@ -44,6 +52,50 @@ public class PlayerStats : CharacterStats
         if (staminaTimer > 0)
         {
             staminaTimer -= Time.deltaTime;
+        }
+
+        if (currentHealth <= 0)
+        {
+            respawnTimer -= Time.deltaTime;
+            fadeTimer += Time.deltaTime;
+            fadeTimer = Mathf.Clamp(fadeTimer, 0, 5);
+
+            Color colorIn = uiManager.deathScreen.GetComponent<Image>().color;
+            colorIn.a = Mathf.Lerp(0, 1, fadeTimer);
+
+            uiManager.deathScreen.GetComponent<Image>().color = colorIn;
+            uiManager.deathScreen.SetActive(true);
+
+            if (fadeTimer >= 5)
+            {
+                GameManager.Instance.Load();
+            }
+        }
+        else
+        {
+            fadeTimer -= Time.deltaTime;
+
+            fadeTimer = Mathf.Clamp(fadeTimer, 0, 5);
+            if (fadeTimer > 0)
+            {
+                Color colorOut = uiManager.deathScreen.GetComponent<Image>().color;
+                colorOut.a = Mathf.Lerp(0, 1, fadeTimer);
+
+                uiManager.deathScreen.GetComponent<Image>().color = colorOut;
+            }
+            else if (fadeTimer <= 0)
+            {
+                uiManager.deathScreen.SetActive(false);
+            }
+
+            if (respawnTimer <= 0)
+            {
+                if (fadeTimer <= 0)
+                {
+                    currentHealth = maxHealth;
+                    healthBar.SetMaxHealth(maxHealth);
+                }
+            }
         }
     }
 
@@ -69,10 +121,6 @@ public class PlayerStats : CharacterStats
             lostOrbs = ChromaOrbsObtained;
             ChromaOrbsObtained -= ChromaOrbsObtained;
             currencyHolder.SetAmount(ChromaOrbsObtained);
-
-            GameManager.Instance.Load();
-            currentHealth = maxHealth;
-            healthBar.SetMaxHealth(maxHealth);
         }
     }
 

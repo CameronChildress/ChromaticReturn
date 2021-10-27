@@ -12,6 +12,9 @@ public class PlayerData
     public int staminaLevel;
     public int chromaOrbsObtained;
     public int lostChromaOrbs;
+    public float respawnTimer;
+    public float fadeInTimer;
+    public float fadeOutTimer;
 
     public PlayerData(PlayerStats playerStats)
     {
@@ -26,5 +29,8 @@ public class PlayerData
         staminaLevel = playerStats.staminaLevel;
         chromaOrbsObtained = playerStats.ChromaOrbsObtained;
         lostChromaOrbs = playerStats.lostOrbs;
+        respawnTimer = playerStats.respawnTimer;
+        fadeInTimer = playerStats.fadeInTimer;
+        fadeOutTimer = playerStats.fadeOutTimer;
     }
 }

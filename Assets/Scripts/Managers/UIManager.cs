@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject weaponInventoryWindow;
     public GameObject equipmentWindow;
     public GameObject gameOptionsWindow;
+    public GameObject deathScreen;
 
     public PlayerInventory playerInventory;
     public EquipmentWindowUI equipmentWindowUI;

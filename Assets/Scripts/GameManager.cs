@@ -37,13 +37,8 @@ public class GameManager : MonoBehaviour
         playerStats.staminaLevel = playerData.staminaLevel;
         playerStats.ChromaOrbsObtained = playerData.chromaOrbsObtained;
         playerStats.lostOrbs = playerData.lostChromaOrbs;
-
-        /*
-         *     public float[] position;
-    public int healthLevel;
-    public int staminaLevel;
-    public int chromaOrbsObtained;
-    public int lostChromaOrbs;
-         * */
+        //playerStats.respawnTimer = playerData.respawnTimer;
+        //playerStats.fadeInTimer = playerData.fadeInTimer;
+        //playerStats.fadeOutTimer = playerData.fadeOutTimer;
     }
 }
