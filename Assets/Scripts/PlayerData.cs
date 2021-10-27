@@ -30,7 +30,5 @@ public class PlayerData
         chromaOrbsObtained = playerStats.ChromaOrbsObtained;
         lostChromaOrbs = playerStats.lostOrbs;
         respawnTimer = playerStats.respawnTimer;
-        fadeInTimer = playerStats.fadeInTimer;
-        fadeOutTimer = playerStats.fadeOutTimer;
     }
 }

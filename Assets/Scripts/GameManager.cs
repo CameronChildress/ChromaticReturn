@@ -38,7 +38,5 @@ public class GameManager : MonoBehaviour
         playerStats.ChromaOrbsObtained = playerData.chromaOrbsObtained;
         playerStats.lostOrbs = playerData.lostChromaOrbs;
         //playerStats.respawnTimer = playerData.respawnTimer;
-        //playerStats.fadeInTimer = playerData.fadeInTimer;
-        //playerStats.fadeOutTimer = playerData.fadeOutTimer;
     }
 }

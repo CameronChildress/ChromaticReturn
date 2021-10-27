@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStats : CharacterStats
@@ -26,17 +27,24 @@ public class PlayerStats : CharacterStats
 
     public float respawnTimer = 3f;
 
-    public float fadeInTimer = 3f;
-    public float fadeOutTimer = 3f;
-    public float fadeTimer = 0f;
+    public float fadeTimer = 5f;
+
+    public static bool firstLoaded = true;
 
     void Awake()
     {
+        GameManager.Instance.Load();
         playerMovement = GetComponent<PlayerMovement>();
     }
 
     void Start()
     {
+        if (firstLoaded)
+        {
+            fadeTimer = 0;
+            firstLoaded = false;
+        }
+
         maxHealth = SetMaxHealthFromHealthLevel();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -68,7 +76,7 @@ public class PlayerStats : CharacterStats
 
             if (fadeTimer >= 5)
             {
-                GameManager.Instance.Load();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
         else
