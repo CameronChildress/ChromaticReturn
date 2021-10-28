@@ -376,4 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1.25
-  interactableText: Save and Return Point
+  interactableText: Rest Point
+  uiManager: {fileID: 0}
+  inputManager: {fileID: 0}
