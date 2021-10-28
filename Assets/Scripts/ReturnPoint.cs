@@ -27,6 +27,11 @@ public class ReturnPoint : Interactable
 
         uiManager.RestMenuScreen.SetActive(true);
 
+        if (uiManager.RestMenuScreen.activeSelf || uiManager.levelUpScreen.activeSelf)
+        {
+            playerMovement.rigidbody.velocity = Vector3.zero;
+        }
+
         GameManager.Instance.Save();
     }
 }

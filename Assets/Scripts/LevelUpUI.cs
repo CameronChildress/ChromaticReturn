@@ -18,6 +18,13 @@ public class LevelUpUI : MonoBehaviour
         restScreen.SetActive(false);
     }
 
+    private void Awake()
+    {
+        HealthText.text = playerStats.Vitality.ToString();
+        EnduranceText.text = playerStats.Endurance.ToString();
+        StrengthText.text = playerStats.Strength.ToString();
+    }
+
     void Update()
     {
         orbsNeededText.text = playerStats.orbsNeededToLevel.ToString();

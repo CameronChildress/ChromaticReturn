@@ -40,6 +40,8 @@ public class PlayerStats : CharacterStats
         GameManager.Instance.Load();
         playerMovement = GetComponent<PlayerMovement>();
 
+        currencyHolder.SetAmount(ChromaOrbsObtained);
+
         Vitality = healthLevel;
         Endurance = staminaLevel;
         Strength = strengthLevel;
@@ -173,7 +175,7 @@ public class PlayerStats : CharacterStats
     public void IncreaseOrbsNeededToLevel()
     {
         orbsNeededToLevel *= 1.25f;
-        orbsNeededToLevel = Mathf.Floor(orbsNeededToLevel);
+        orbsNeededToLevel = Mathf.FloorToInt(orbsNeededToLevel);
     }
 
     public void LevelUpHEALTH()
@@ -181,8 +183,10 @@ public class PlayerStats : CharacterStats
         if (ChromaOrbsObtained >= orbsNeededToLevel)
         {
             Vitality++;
-            IncreaseOrbsNeededToLevel();
             ChromaOrbsObtained -= Mathf.FloorToInt(orbsNeededToLevel);
+            IncreaseOrbsNeededToLevel();
+
+            currencyHolder.SetAmount(ChromaOrbsObtained);
         }
         healthLevel = Vitality;
     }
@@ -192,8 +196,10 @@ public class PlayerStats : CharacterStats
         if (ChromaOrbsObtained >= orbsNeededToLevel)
         {
             Endurance++;
-            IncreaseOrbsNeededToLevel();
             ChromaOrbsObtained -= Mathf.FloorToInt(orbsNeededToLevel);
+            IncreaseOrbsNeededToLevel();
+
+            currencyHolder.SetAmount(ChromaOrbsObtained);
         }
 
         staminaLevel = Endurance;
@@ -204,8 +210,10 @@ public class PlayerStats : CharacterStats
         if (ChromaOrbsObtained >= orbsNeededToLevel)
         {
             Strength++;
-            IncreaseOrbsNeededToLevel();
             ChromaOrbsObtained -= Mathf.FloorToInt(orbsNeededToLevel);
+            IncreaseOrbsNeededToLevel();
+
+            currencyHolder.SetAmount(ChromaOrbsObtained);
         }
 
         strengthLevel = Strength;
