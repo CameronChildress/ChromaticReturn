@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public GameObject equipmentWindow;
     public GameObject gameOptionsWindow;
     public GameObject deathScreen;
+    public GameObject levelUpScreen;
+    public GameObject RestMenuScreen;
 
     public PlayerInventory playerInventory;
     public EquipmentWindowUI equipmentWindowUI;
@@ -78,6 +80,8 @@ public class UIManager : MonoBehaviour
         equipmentWindow.SetActive(false);
         weaponInventoryWindow.SetActive(false);
         gameOptionsWindow.SetActive(false);
+        levelUpScreen.SetActive(false);
+        RestMenuScreen.SetActive(false);
     }
 
     public void ResetAllSelectedSlots()

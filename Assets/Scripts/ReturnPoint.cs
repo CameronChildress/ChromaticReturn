@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ReturnPoint : Interactable
 {
+    public UIManager uiManager;
+
     public override void Interact(PlayerManager playerManager)
     {
         base.Interact(playerManager);
@@ -22,19 +24,9 @@ public class ReturnPoint : Interactable
         animatorManager = playerManager.GetComponentInChildren<AnimatorManager>();
 
         playerMovement.rigidbody.velocity = Vector3.zero;
-        //animatorManager.PlayTargetAnimation("PickUpItem", true);
+
+        uiManager.RestMenuScreen.SetActive(true);
 
         GameManager.Instance.Save();
-
-        //playerManager.itemInteractableGameObject.SetActive(true);
-        //playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().enabled = false;
-        //GameObject.Find("ItemUIBackground").SetActive(false);
-        //playerManager.itemInteractableGameObject.GetComponentInChildren<Text>().text = playerManager.GetComponent<PlayerStats>().lostOrbs.ToString();
-        //playerManager.itemInteractableGameObject.GetComponentInChildren<RawImage>().texture = null;
-
-        //orbAmount = playerManager.GetComponent<PlayerStats>().lostOrbs;
-        //playerManager.GetComponent<PlayerStats>().AddChromaOrbs(orbAmount);
-
-        //Destroy(gameObject);
     }
 }
