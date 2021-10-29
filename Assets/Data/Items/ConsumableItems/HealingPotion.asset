@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712caf9b2b369d748a121ed935cf37c9, type: 3}
+  m_Name: HealingPotion
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 8a983633a5db2e44ca9629d3050380d7, type: 3}
+  itemName: HealthPotion
+  maxItemAmount: 5
+  currentItemAmount: 5
+  itemPrefab: {fileID: 238087537120538116, guid: 0de11b4594eec4947940e99d666f9985, type: 3}
+  consumableAnimation: Drinking
+  isInteracting: 1
+  healthPotion: 1
+  healthRecoveryAmount: 100
+  recoveryFX: {fileID: 1425311488973686141, guid: e4ab300f25ffa4d40bf3f8b9e8bb2c18, type: 3}

@@ -27,7 +27,7 @@ public class PlayerStats : CharacterStats
 
     public int strengthLevel;
 
-    public float orbsNeededToLevel;
+    public float orbsNeededToLevel = 100;
 
     public float respawnTimer = 3f;
 

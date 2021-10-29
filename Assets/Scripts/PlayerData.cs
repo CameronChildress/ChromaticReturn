@@ -11,6 +11,7 @@ public class PlayerData
     public float currentHealth;
     public int staminaLevel;
     public int chromaOrbsObtained;
+    public float orbsNeededToLevel;
     public int lostChromaOrbs;
     public float respawnTimer;
     public float fadeInTimer;
@@ -30,5 +31,6 @@ public class PlayerData
         chromaOrbsObtained = playerStats.ChromaOrbsObtained;
         lostChromaOrbs = playerStats.lostOrbs;
         respawnTimer = playerStats.respawnTimer;
+        orbsNeededToLevel = playerStats.orbsNeededToLevel;
     }
 }

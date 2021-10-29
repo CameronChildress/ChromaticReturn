@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour
     WeaponSlotManager weaponSlotManager;
     ConsumableSlotManager consumableSlotManager;
 
-    public ConsumableItem consumableItem;
+    public ConsumableItem currentConsumableItem;
     public ConsumableItem emptyConsumable;
 
     public WeaponItem rightWeapon;
@@ -41,36 +41,36 @@ public class PlayerInventory : MonoBehaviour
         weaponSlotManager.LoadWeaponInSlot(leftWeapon, true);
     }
 
-    public void ChangeConsumableItem()
-    {
-        currentConsumableIndex++;
+    //public void ChangeConsumableItem()
+    //{
+    //    currentConsumableIndex++;
 
-        if (currentConsumableIndex == 0 && consumableItemsInBottomQuickSlot[0] != null)
-        {
-            consumableItem = consumableItemsInBottomQuickSlot[currentConsumableIndex];
-            consumableSlotManager.LoadConsumableInSlot(consumableItemsInBottomQuickSlot[currentConsumableIndex]);
-        }
-        else if (currentConsumableIndex == 0 && consumableItemsInBottomQuickSlot[0] == null)
-        {
-            currentConsumableIndex++;
-        }
-        else if (currentConsumableIndex == 1 && consumableItemsInBottomQuickSlot[1] != null)
-        {
-            consumableItem = consumableItemsInBottomQuickSlot[currentConsumableIndex];
-            consumableSlotManager.LoadConsumableInSlot(consumableItemsInBottomQuickSlot[currentConsumableIndex]);
-        }
-        else
-        {
-            currentRightWeaponIndex++;
-        }
+    //    if (currentConsumableIndex == 0 && consumableItemsInBottomQuickSlot[0] != null)
+    //    {
+    //        consumableItem = consumableItemsInBottomQuickSlot[currentConsumableIndex];
+    //        consumableSlotManager.LoadConsumableInSlot(consumableItemsInBottomQuickSlot[currentConsumableIndex]);
+    //    }
+    //    else if (currentConsumableIndex == 0 && consumableItemsInBottomQuickSlot[0] == null)
+    //    {
+    //        currentConsumableIndex++;
+    //    }
+    //    else if (currentConsumableIndex == 1 && consumableItemsInBottomQuickSlot[1] != null)
+    //    {
+    //        consumableItem = consumableItemsInBottomQuickSlot[currentConsumableIndex];
+    //        consumableSlotManager.LoadConsumableInSlot(consumableItemsInBottomQuickSlot[currentConsumableIndex]);
+    //    }
+    //    else
+    //    {
+    //        currentRightWeaponIndex++;
+    //    }
 
-        if (currentConsumableIndex > consumableItemsInBottomQuickSlot.Length - 1)
-        {
-            currentConsumableIndex = -1;
-            consumableItem = emptyConsumable;
-            consumableSlotManager.LoadConsumableInSlot(emptyConsumable);
-        }
-    }
+    //    if (currentConsumableIndex > consumableItemsInBottomQuickSlot.Length - 1)
+    //    {
+    //        currentConsumableIndex = -1;
+    //        consumableItem = emptyConsumable;
+    //        consumableSlotManager.LoadConsumableInSlot(emptyConsumable);
+    //    }
+    //}
 
     public void ChangeRightWeapon()
     {

@@ -274,6 +274,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "HealthPotion",
+                    "type": "Button",
+                    "id": "7ac714a0-7ecf-418f-9615-0038d3959b8e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "220a4c0c-0d8c-4d2a-b9fc-f2346079ad69",
@@ -512,6 +520,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LockOn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c7251c8-a27a-49b6-a86e-a6c3830ecc8c",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HealthPotion",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2a0f7b9-cad6-48a2-9735-e738b3e68d83",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HealthPotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -287,6 +287,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""HealthPotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ac714a0-7ecf-418f-9615-0038d3959b8e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""220a4c0c-0d8c-4d2a-b9fc-f2346079ad69"",
@@ -527,6 +535,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""LockOn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c7251c8-a27a-49b6-a86e-a6c3830ecc8c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealthPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2a0f7b9-cad6-48a2-9735-e738b3e68d83"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealthPotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -670,6 +700,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player Actions
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
         m_PlayerActions_B = m_PlayerActions.FindAction("B", throwIfNotFound: true);
+        m_PlayerActions_HealthPotion = m_PlayerActions.FindAction("HealthPotion", throwIfNotFound: true);
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_CTRL = m_PlayerActions.FindAction("CTRL", throwIfNotFound: true);
         m_PlayerActions_ALT = m_PlayerActions.FindAction("ALT", throwIfNotFound: true);
@@ -791,6 +822,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerActions;
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
     private readonly InputAction m_PlayerActions_B;
+    private readonly InputAction m_PlayerActions_HealthPotion;
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_CTRL;
     private readonly InputAction m_PlayerActions_ALT;
@@ -804,6 +836,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @B => m_Wrapper.m_PlayerActions_B;
+        public InputAction @HealthPotion => m_Wrapper.m_PlayerActions_HealthPotion;
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @CTRL => m_Wrapper.m_PlayerActions_CTRL;
         public InputAction @ALT => m_Wrapper.m_PlayerActions_ALT;
@@ -824,6 +857,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @B.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
                 @B.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
                 @B.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnB;
+                @HealthPotion.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnHealthPotion;
+                @HealthPotion.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnHealthPotion;
+                @HealthPotion.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnHealthPotion;
                 @Jump.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnJump;
@@ -855,6 +891,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @B.started += instance.OnB;
                 @B.performed += instance.OnB;
                 @B.canceled += instance.OnB;
+                @HealthPotion.started += instance.OnHealthPotion;
+                @HealthPotion.performed += instance.OnHealthPotion;
+                @HealthPotion.canceled += instance.OnHealthPotion;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -950,6 +989,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerActionsActions
     {
         void OnB(InputAction.CallbackContext context);
+        void OnHealthPotion(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCTRL(InputAction.CallbackContext context);
         void OnALT(InputAction.CallbackContext context);

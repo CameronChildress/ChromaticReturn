@@ -10,7 +10,9 @@ public class InputManager : MonoBehaviour
     PlayerInventory playerInventory;
     PlayerMovement playerMovement;
     AnimatorManager animatorManager;
+    PlayerEffectsManager playerEffectsManager;
     PlayerStats playerStats;
+    WeaponSlotManager weaponSlotManager;
     UIManager uiManager;
     CameraManager cameraManager;
 
@@ -29,6 +31,8 @@ public class InputManager : MonoBehaviour
     public bool ctrlInput;
     public bool altInput;
     public bool jumpInput;
+
+    public bool healthPotionInput;
 
     public bool lockOnInput;
     public bool lockOnLeftInput;
@@ -57,6 +61,8 @@ public class InputManager : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         uiManager = FindObjectOfType<UIManager>();
         cameraManager = FindObjectOfType<CameraManager>();
+        playerEffectsManager = GetComponentInChildren<PlayerEffectsManager>();
+        weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
     }
 
     void OnEnable()
@@ -90,6 +96,8 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerMovement.LockOnTargetLeft.performed += i => lockOnLeftInput = true;
             playerControls.PlayerMovement.LockOnTargetRight.performed += i => lockOnRightInput = true;
+
+            playerControls.PlayerActions.HealthPotion.performed += i => healthPotionInput = true;
         }
 
         playerControls.Enable();
@@ -114,6 +122,8 @@ public class InputManager : MonoBehaviour
         HandleInventoryInput();
 
         HandleLockOnInput();
+
+        HandleUseConsumableInput();
     }
 
     void HandleMovementInput()
@@ -284,6 +294,15 @@ public class InputManager : MonoBehaviour
             {
                 cameraManager.currentLockOnTarget = cameraManager.rightLockOnTarget;
             }
+        }
+    }
+
+    void HandleUseConsumableInput()
+    {
+        if (healthPotionInput)
+        {
+            healthPotionInput = false;
+            playerInventory.currentConsumableItem.AttemptToConsumeItem(animatorManager, weaponSlotManager, playerEffectsManager);
         }
     }
 }

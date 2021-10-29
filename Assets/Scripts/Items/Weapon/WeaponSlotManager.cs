@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class WeaponSlotManager : MonoBehaviour
 {
-    WeaponHolderSlot LeftHandSlot;
-    WeaponHolderSlot RightHandSlot;
+    public WeaponHolderSlot LeftHandSlot;
+    public WeaponHolderSlot RightHandSlot;
+
+    PlayerInventory playerInventory;
 
     Weapon leftWeaponCollider;
     Weapon rightWeaponCollider;
@@ -17,6 +19,7 @@ public class WeaponSlotManager : MonoBehaviour
     private void Awake()
     {
         //animator.GetComponent<Animator>();
+        playerInventory = FindObjectOfType<PlayerInventory>();
         quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
 
         WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
@@ -31,6 +34,12 @@ public class WeaponSlotManager : MonoBehaviour
                 RightHandSlot = weaponSlot;
             }
         }
+    }
+
+    public void LoadBothWeaponsInSlots()
+    {
+        LoadWeaponInSlot(playerInventory.rightWeapon, false);
+        LoadWeaponInSlot(playerInventory.leftWeapon, true);
     }
 
     public void LoadWeaponInSlot(WeaponItem weaponItem, bool isLeft)
