@@ -115,6 +115,8 @@ public class PlayerStats : CharacterStats
                 }
             }
         }
+
+        healthBar.SetCurrentHealth(currentHealth);
     }
 
     float SetMaxHealthFromHealthLevel()

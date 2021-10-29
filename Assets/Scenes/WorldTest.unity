@@ -5137,26 +5137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackState: {fileID: 1056603867}
   pursueTargetState: {fileID: 719349933}
---- !u!1 &308411475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 207231844044161449, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
-  m_PrefabInstance: {fileID: 207231844218428616}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &308411476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308411475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b60e4c2edf8cbc54d8dfbeca66dc64d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentParticleFX: {fileID: 0}
-  amountToHeal: 50
-  instantiatedFXModel: {fileID: 0}
 --- !u!1001 &311005674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45359,14 +45339,6 @@ PrefabInstance:
       propertyPath: currencyHolder
       value: 
       objectReference: {fileID: 2319525544893836843}
-    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
-      propertyPath: emptyConsumable
-      value: 
-      objectReference: {fileID: 11400000, guid: 7f22ddcb77f24094cbf0a3ebfe34d7aa, type: 2}
-    - target: {fileID: 207231845452242468, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
-      propertyPath: currentConsumableItem
-      value: 
-      objectReference: {fileID: 11400000, guid: 52163936f2163204e9598cf1663660b6, type: 2}
     - target: {fileID: 207231845452242469, guid: d78f18b4815274445b42707f331bc7d6, type: 3}
       propertyPath: interactableUIGameObject
       value: 
