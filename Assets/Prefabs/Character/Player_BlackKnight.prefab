@@ -3003,6 +3003,8 @@ MonoBehaviour:
   inventoryInput: 0
   inventoryFlag: 0
   lockOnFlag: 0
+  restingFlag: 0
+  restingInput: 0
   dPadUp: 0
   dPadDown: 0
   dPadLeft: 0

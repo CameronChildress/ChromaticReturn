@@ -28,11 +28,15 @@ public class ReturnPoint : Interactable
 
         uiManager.RestMenuScreen.SetActive(true);
 
-        if (uiManager.RestMenuScreen.activeInHierarchy || uiManager.levelUpScreen.activeInHierarchy)
-        {
-            playerMovement.rigidbody.velocity = Vector3.zero;
-            inputManager.inventoryFlag = true;
-        }
+        inputManager.restingFlag = true;
+
+        Debug.Log("Resting");
+
+        //if (uiManager.RestMenuScreen.activeInHierarchy || uiManager.levelUpScreen.activeInHierarchy)
+        //{
+        //    playerMovement.rigidbody.velocity = Vector3.zero;
+        //    inputManager.inventoryFlag = true;
+        //}
 
         GameManager.Instance.Save();
     }

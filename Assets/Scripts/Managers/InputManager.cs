@@ -44,6 +44,9 @@ public class InputManager : MonoBehaviour
     public bool inventoryFlag;
     public bool lockOnFlag;
 
+    public bool restingFlag;
+    public bool restingInput;
+
     public bool dPadUp;
     public bool dPadDown;
     public bool dPadLeft;
@@ -124,6 +127,8 @@ public class InputManager : MonoBehaviour
         HandleLockOnInput();
 
         HandleUseConsumableInput();
+
+        //HandleRestingMenuInput();
     }
 
     void HandleMovementInput()
@@ -235,8 +240,6 @@ public class InputManager : MonoBehaviour
 
         if (inventoryInput)
         {
-            playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = false;
-            playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
@@ -246,15 +249,46 @@ public class InputManager : MonoBehaviour
             {
                 uiManager.OpenSelectWindow();
                 uiManager.UpdateUI();
+
+                playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = false;
+                playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = false;
             }
             else
             {
                 uiManager.CloseSelectWindow();
                 uiManager.CloseAllInventoryWindows();
+
+                playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = true;
+                playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = true;
             }
         }
 
         inventoryInput = false;
+        restingInput = false;
+    }
+
+    void HandleRestingMenuInput()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        restingFlag = !restingFlag;
+
+        if (restingFlag)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = false;
+            playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = false;
+        }
+        else
+        {
+            playerControls.PlayerActions.LightAttack.performed += i => isLightAttacking = true;
+            playerControls.PlayerActions.HeavyAttack.performed += i => isHeavyAttacking = true;
+        }
+        
+        restingInput = false;
     }
 
     void HandleLockOnInput()
