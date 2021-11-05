@@ -9,6 +9,11 @@ public class PlayerHandleAttacks : MonoBehaviour
 
     private void Awake()
     {
+        
+    }
+
+    private void Start()
+    {
         animatorManager = GetComponentInChildren<AnimatorManager>();
         playerMovement = GetComponent<PlayerMovement>();
     }

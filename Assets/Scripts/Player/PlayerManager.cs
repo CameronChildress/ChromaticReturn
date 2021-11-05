@@ -21,12 +21,17 @@ public class PlayerManager : CharacterManager
 
     private void Awake()
     {
+        
+    }
+
+    void Start()
+    {
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         playerMovement = GetComponent<PlayerMovement>();
-        animator = GetComponentInChildren<Animator>();
         interactableUI = FindObjectOfType<InteractableUI>();
         playerStats = GetComponent<PlayerStats>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()

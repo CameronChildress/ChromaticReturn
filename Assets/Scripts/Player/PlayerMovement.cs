@@ -43,14 +43,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        //audio = GetComponentInChildren<AudioSource>();
+        cameraObject = Camera.main.transform;
+    }
+
+    private void Start()
+    {
         playerManager = GetComponent<PlayerManager>();
         animatorManager = GetComponentInChildren<AnimatorManager>();
         inputManager = GetComponent<InputManager>();
         rigidbody = GetComponent<Rigidbody>();
         playerStats = GetComponent<PlayerStats>();
-        //audio = GetComponentInChildren<AudioSource>();
-
-        cameraObject = Camera.main.transform;
     }
 
     private void Update()

@@ -29,17 +29,21 @@ public class PlayerInventory : MonoBehaviour
 
     private void Awake()
     {
-        weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
-        consumableSlotManager = GetComponentInChildren<ConsumableSlotManager>();
+        
     }
 
-    private void Start()
+    void Start()
     {
+        weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
+        consumableSlotManager = GetComponentInChildren<ConsumableSlotManager>();
+
         rightWeapon = weaponsInRightHandSlots[0];
         leftWeapon = weaponsInLeftHandSlots[0];
         weaponSlotManager.LoadWeaponInSlot(rightWeapon, false);
         weaponSlotManager.LoadWeaponInSlot(leftWeapon, true);
     }
+
+    
 
     //public void ChangeConsumableItem()
     //{

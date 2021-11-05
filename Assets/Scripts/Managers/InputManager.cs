@@ -57,7 +57,11 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        animatorManager = GetComponentInChildren<AnimatorManager>();
+        
+    }
+
+    void Start()
+    {
         playerMovement = GetComponent<PlayerMovement>();
         playerHandleAttacks = GetComponent<PlayerHandleAttacks>();
         playerInventory = GetComponent<PlayerInventory>();
@@ -66,6 +70,7 @@ public class InputManager : MonoBehaviour
         cameraManager = FindObjectOfType<CameraManager>();
         playerEffectsManager = GetComponentInChildren<PlayerEffectsManager>();
         weaponSlotManager = GetComponentInChildren<WeaponSlotManager>();
+        animatorManager = GetComponentInChildren<AnimatorManager>();
     }
 
     void OnEnable()

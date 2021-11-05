@@ -3150,7 +3150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12369e008eb3a07409747159d56f14b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 6154813940060122999}
 --- !u!114 &6154813940052785893
 MonoBehaviour:
   m_ObjectHideFlags: 0
