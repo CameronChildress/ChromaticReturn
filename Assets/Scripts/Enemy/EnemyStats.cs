@@ -18,13 +18,13 @@ public class EnemyStats : CharacterStats
         //animator = GetComponent<Animator>();
         playerStats = FindObjectOfType<PlayerStats>();
         enemyMovement = GetComponent<EnemyMovement>();
+
+        maxHealth = SetMaxHealthFromHealthLevel();
+        currentHealth = maxHealth;
     }
 
     void Start()
     {
-        maxHealth = SetMaxHealthFromHealthLevel();
-        currentHealth = maxHealth;
-
         healthBar.SetMaxHealth(maxHealth);
     }
 
