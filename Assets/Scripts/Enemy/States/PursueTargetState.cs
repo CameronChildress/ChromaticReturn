@@ -12,6 +12,7 @@ public class PursueTargetState : State
         if (enemyManager.isPerformingAction)
         {
             enemyAnimatorManager.animator.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
+            enemyAnimatorManager.animator.SetFloat("locomotion", 0, 0.1f, Time.deltaTime);
             return this;
         }
 
@@ -19,9 +20,12 @@ public class PursueTargetState : State
         float distanceFromTarget = Vector3.Distance(enemyManager.currentTarget.transform.position, enemyManager.transform.position);
         float viewableAngle = Vector3.Angle(targetDirection, enemyManager.transform.forward);
 
+        //Debug.Log(distanceFromTarget + "\n" + enemyManager.maximumAttackRange);
+
         if (distanceFromTarget > enemyManager.maximumAttackRange)
         {
             enemyAnimatorManager.animator.SetFloat("Vertical", 1, 0.1f, Time.deltaTime);
+            enemyAnimatorManager.animator.SetFloat("locomotion", 1, 0.1f, Time.deltaTime);
         }
 
         HandleRotateTowardsTarget(enemyManager);

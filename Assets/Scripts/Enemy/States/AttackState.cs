@@ -37,6 +37,8 @@ public class AttackState : State
                     {
                         enemyAnimatorManager.animator.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
                         enemyAnimatorManager.animator.SetFloat("Horizontal", 0, 0.1f, Time.deltaTime);
+                        enemyAnimatorManager.animator.SetFloat("locomotion", 0, 0.1f, Time.deltaTime);
+                        enemyAnimatorManager.animator.SetTrigger(currentAttack.actionAnimation);
                         enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
                         enemyManager.isPerformingAction = true;
                         enemyManager.currentRecoveryTime = currentAttack.recoveryTime;

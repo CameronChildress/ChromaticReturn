@@ -15,6 +15,7 @@ public class CombatStanceState : State
         if (enemyManager.isPerformingAction)
         {
             enemyAnimatorManager.animator.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);
+            enemyAnimatorManager.animator.SetFloat("locomotion", 0, 0.1f, Time.deltaTime);
         }
 
         //if in attack range, switch to attack state

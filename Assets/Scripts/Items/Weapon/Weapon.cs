@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         damageCollider = GetComponent<Collider>();
-        damageCollider.gameObject.SetActive(true);
+        damageCollider.gameObject?.SetActive(true);
         damageCollider.isTrigger = true;
         damageCollider.enabled = false;
         if (trailObject != null)
