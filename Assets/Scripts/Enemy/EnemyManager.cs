@@ -51,9 +51,10 @@ public class EnemyManager : CharacterManager
     {
         HandleRecoveryTime();
 
-        if (enemyStats.currentHealth <= 0)
+        if (enemyStats.currentHealth <= 0 && gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            enemyAnimatorManager.PlayTargetAnimation("death", true);
+            Destroy(gameObject, 5f);
 
             WorldColorManager.Instance.OnChangeWorldProfile();
         }

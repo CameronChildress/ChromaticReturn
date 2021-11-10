@@ -51,7 +51,7 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
             EnemyStats enemyStats = other.GetComponent<EnemyStats>();
             if (enemyStats != null)

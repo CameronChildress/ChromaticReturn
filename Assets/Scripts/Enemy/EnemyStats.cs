@@ -6,10 +6,12 @@ public class EnemyStats : CharacterStats
 {
     EnemyMovement enemyMovement;
     PlayerStats playerStats;
+    BossManager bossManager;
+    EnemyAnimatorManager enemyAnimatorManager;
 
     public HealthBar healthBar;
 
-    int ChromaOrbsToGive = 100;
+    public int ChromaOrbsToGive = 100;
 
     //Animator animator;
 
@@ -18,6 +20,8 @@ public class EnemyStats : CharacterStats
         //animator = GetComponent<Animator>();
         playerStats = FindObjectOfType<PlayerStats>();
         enemyMovement = GetComponent<EnemyMovement>();
+        bossManager = GetComponent<BossManager>();
+        enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
 
         maxHealth = SetMaxHealthFromHealthLevel();
         currentHealth = maxHealth;
@@ -42,6 +46,11 @@ public class EnemyStats : CharacterStats
         //animator.Play("Hurt");
 
         if (currentHealth <= 0)
+        {
+            enemyAnimatorManager.PlayTargetAnimation("death", true);
+        }
+
+        if (currentHealth <= 0 && bossManager.firstDeath == true)
         {
             currentHealth = 0;
             playerStats.AddChromaOrbs(ChromaOrbsToGive);

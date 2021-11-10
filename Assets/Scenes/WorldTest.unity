@@ -17274,6 +17274,7 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   healthBar: {fileID: 675686770}
+  ChromaOrbsToGive: 100
 --- !u!114 &535857266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17287,6 +17288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: Knight Paul
+  firstDeath: 0
+  firstDeathTimer: 5
 --- !u!1001 &537549146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70179,7 +70182,7 @@ GameObject:
   - component: {fileID: 2014667546}
   m_Layer: 0
   m_Name: DemonBoss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70248,6 +70251,7 @@ MonoBehaviour:
   maxHealth: 0
   currentHealth: 0
   healthBar: {fileID: 2014667546}
+  ChromaOrbsToGive: 5000
 --- !u!114 &2014667543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70302,6 +70306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: The Lost Light
+  firstDeath: 0
+  firstDeathTimer: 5
 --- !u!114 &2014667546
 MonoBehaviour:
   m_ObjectHideFlags: 0
