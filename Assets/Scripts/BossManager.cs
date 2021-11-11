@@ -58,14 +58,12 @@ public class BossManager : MonoBehaviour
 
         if (attackState.currentAttack != null)
         {
-            for (int i = 0; i < attackState.enemyAttacks.Length; i++)
+            if (attackState.currentAttack.actionAnimation == "cast start")
             {
-                if (attackState.enemyAttacks[i].name == "SpawnADS01")
-                {
-                    Debug.Log("Spawn?");
-                    gameObject.GetComponent<EnemySpawner>().SpawnEnemy();
-                }
-            }
+                Debug.Log(attackState.currentAttack);
+                enemyAnimatorManager.animator.SetTrigger("SpawnLoop");
+                gameObject.GetComponentInChildren<EnemySpawner>().SpawnEnemy();
+            } 
         }
     }
 }
