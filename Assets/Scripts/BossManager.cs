@@ -49,7 +49,6 @@ public class BossManager : MonoBehaviour
             enemyManager.enabled = false;
             firstDeathTimer -= Time.deltaTime;
 
-
             if (firstDeath == false && firstDeathTimer <= 0)
             {
                 enemyManager.enabled = true;
@@ -63,6 +62,7 @@ public class BossManager : MonoBehaviour
             }
             else if (firstDeath == true)
             {
+                WorldColorManager.Instance.OnChangeWorldProfile();
                 Destroy(gameObject, 5f);
             }
         }
@@ -78,6 +78,7 @@ public class BossManager : MonoBehaviour
                 //if (spawnTimer <= 0 && enemiesSpawned < 4)
                 if (enemiesSpawned < 4)
                 {
+                    Debug.Log("spawn");
                     SpawnEnemy();
                     spawnTimer = enemySpawnRate;
                 }

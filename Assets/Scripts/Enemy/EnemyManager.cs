@@ -45,6 +45,8 @@ public class EnemyManager : CharacterManager
     private void Start()
     {
         rigidbody.isKinematic = false;
+
+        currentState = GetComponentInChildren<IdleState>();
     }
 
     void Update()
@@ -53,10 +55,8 @@ public class EnemyManager : CharacterManager
 
         if (enemyStats.currentHealth <= 0 && gameObject.tag == "Enemy")
         {
-            enemyAnimatorManager.PlayTargetAnimation("death", true);
-            Destroy(gameObject, 5f);
-
-            WorldColorManager.Instance.OnChangeWorldProfile();
+            //enemyAnimatorManager.PlayTargetAnimation("death", true);
+            Destroy(gameObject, 2f);
         }
     }
 
