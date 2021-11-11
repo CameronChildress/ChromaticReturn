@@ -10,6 +10,7 @@ public class EnemyWeaponSlotManager : MonoBehaviour
     private void Awake()
     {
         rightWeaponCollider = GetComponentInChildren<Weapon>();
+        leftWeaponCollider = GetComponentInChildren<Weapon>();
     }
 
     public void OpenRightWeaponCollider()
