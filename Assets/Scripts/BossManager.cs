@@ -10,6 +10,8 @@ public class BossManager : MonoBehaviour
     EnemyAnimatorManager enemyAnimatorManager;
     EnemyManager enemyManager;
 
+    AttackState attackState;
+
     public bool firstDeath = false;
     public float firstDeathTimer = 5f;
 
@@ -19,6 +21,8 @@ public class BossManager : MonoBehaviour
         enemyStats = GetComponent<EnemyStats>();
         enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
         enemyManager = GetComponent<EnemyManager>();
+
+        attackState = GetComponentInChildren<AttackState>();
     }
 
     private void Start()
@@ -49,6 +53,18 @@ public class BossManager : MonoBehaviour
             else if (firstDeath == true)
             {
                 Destroy(gameObject, 5f);
+            }
+        }
+
+        if (attackState.currentAttack != null)
+        {
+            for (int i = 0; i < attackState.enemyAttacks.Length; i++)
+            {
+                if (attackState.enemyAttacks[i].name == "SpawnADS01")
+                {
+                    Debug.Log("Spawn?");
+                    gameObject.GetComponent<EnemySpawner>().SpawnEnemy();
+                }
             }
         }
     }
