@@ -58,6 +58,12 @@ public class Weapon : MonoBehaviour
             {
                 enemyStats.TakeDamage(damage);
             }
+
+            if (other.gameObject.tag == this.tag)
+            {
+                enemyStats.TakeDamage(0);
+                return;
+            }
         }
 
         if (other.gameObject.tag == "Player")
