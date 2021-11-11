@@ -17287,6 +17287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec974e6081592d4e9f343898c0068d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawns: []
+  enemySpawnRate: 3
   bossName: Knight Paul
   firstDeath: 0
   firstDeathTimer: 5
@@ -70520,6 +70522,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec974e6081592d4e9f343898c0068d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 1929108693}
+  - {fileID: 1611877298}
+  - {fileID: 1903110116}
+  - {fileID: 770441566}
+  enemySpawnRate: 1
   bossName: The Lost Light
   firstDeath: 0
   firstDeathTimer: 5
@@ -79246,11 +79254,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3162398206150999720, guid: b31aa04c086b097468b789c22fd38df0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3162398206150999720, guid: b31aa04c086b097468b789c22fd38df0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7598149368423663218, guid: b31aa04c086b097468b789c22fd38df0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -79319,6 +79327,10 @@ PrefabInstance:
     - target: {fileID: 8523295644343061435, guid: b31aa04c086b097468b789c22fd38df0, type: 3}
       propertyPath: m_Name
       value: YellowDEMON
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523295644343061435, guid: b31aa04c086b097468b789c22fd38df0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31aa04c086b097468b789c22fd38df0, type: 3}
