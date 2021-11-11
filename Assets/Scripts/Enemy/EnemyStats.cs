@@ -50,7 +50,7 @@ public class EnemyStats : CharacterStats
             enemyAnimatorManager.PlayTargetAnimation("death", true);
         }
 
-        if (currentHealth <= 0 && bossManager.firstDeath == true)
+        if ((currentHealth <= 0 && bossManager.firstDeath == true) || (currentHealth <= 0 && gameObject.tag == "Enemy"))
         {
             currentHealth = 0;
             playerStats.AddChromaOrbs(ChromaOrbsToGive);
