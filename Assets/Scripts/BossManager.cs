@@ -10,7 +10,7 @@ public class BossManager : MonoBehaviour
 
     int randomSpawn = 0;
     int enemiesSpawned = 0;
-    float spawnTimer = 5f;
+    public float spawnTimer = 2f;
     public float enemySpawnRate = 3f;
 
     public string bossName;
@@ -76,16 +76,25 @@ public class BossManager : MonoBehaviour
                 //gameObject.GetComponentInChildren<EnemySpawner>().SpawnEnemy();
 
                 //if (spawnTimer <= 0 && enemiesSpawned < 4)
+
                 if (enemiesSpawned < 4)
                 {
                     Debug.Log("spawn");
-                    SpawnEnemy();
-                    spawnTimer = enemySpawnRate;
+
+                    for (int i = 0; i < spawns.Length; i++)
+                    {
+                        spawns[i].spawnFX.SetActive(true);
+                    }
+
+                    //Invoke("SpawnEnemy", 2f);
+
+                    StartCoroutine("SpawnEnemyAfterTime");
                 }
 
                 if (enemiesSpawned == 4)
                 {
                     finishedSpawning = true;
+                    StopAllCoroutines();
                 }
 
                 EnemyManager[] enemies = FindObjectsOfType<EnemyManager>();
@@ -118,5 +127,19 @@ public class BossManager : MonoBehaviour
         spawns[randomSpawn].SpawnEnemy();
         usedSpawns.Add(spawns[randomSpawn]);
         enemiesSpawned++;
+    }
+
+    IEnumerator SpawnEnemyAfterTime()
+    {
+        do
+        {
+            randomSpawn = Random.Range(0, spawns.Length);
+        } while (usedSpawns.Contains(spawns[randomSpawn]));
+
+        spawns[randomSpawn].SpawnEnemy();
+        usedSpawns.Add(spawns[randomSpawn]);
+        enemiesSpawned++;
+
+        yield return new WaitForSeconds(2f);
     }
 }

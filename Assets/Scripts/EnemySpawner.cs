@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] spawnableEnemies;
+    public GameObject spawnFX;
 
     public void SpawnEnemy()
     {
