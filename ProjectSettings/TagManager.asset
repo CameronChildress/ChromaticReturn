@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Interactable
   - Boss
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Character
   - PostProcessing
   - CharacterColliderBlocker
-  - 
-  - 
+  - Projectile
+  - Boss
   - 
   - 
   - 

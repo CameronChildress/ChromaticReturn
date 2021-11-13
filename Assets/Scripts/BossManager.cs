@@ -24,6 +24,11 @@ public class BossManager : MonoBehaviour
     public bool firstDeath = false;
     public float firstDeathTimer = 5f;
 
+    public GameObject fireballSpawnSpot;
+    public GameObject fireballOBJ;
+    GameObject fireballClone;
+    public float projectileSpeed;
+
     private void Awake()
     {
         bossHealthBar = FindObjectOfType<BossHealthBar>();
@@ -141,5 +146,17 @@ public class BossManager : MonoBehaviour
         spawns[randomSpawn].SpawnEnemy();
         usedSpawns.Add(spawns[randomSpawn]);
         enemiesSpawned++;
+    }
+
+    public void SpawnProjectile()
+    {
+        fireballClone = Instantiate(fireballOBJ, fireballSpawnSpot.transform.position, fireballSpawnSpot.transform.rotation);
+        Debug.Log("Spawned fireball");
+    }
+
+    public void ThrowProjectile()
+    {
+        fireballClone.GetComponent<SphereCollider>().enabled = true;
+        fireballClone.GetComponent<Rigidbody>().velocity = (fireballSpawnSpot.transform.position - enemyManager.currentTarget.transform.position).normalized * projectileSpeed;
     }
 }

@@ -7,10 +7,14 @@ public class EnemyWeaponSlotManager : MonoBehaviour
     Weapon rightWeaponCollider;
     Weapon leftWeaponCollider;
 
+    BossManager bossManager;
+
     private void Awake()
     {
         rightWeaponCollider = GetComponentInChildren<Weapon>();
         leftWeaponCollider = GetComponentInChildren<Weapon>();
+
+        bossManager = FindObjectOfType<BossManager>();
     }
 
     public void OpenRightWeaponCollider()
@@ -39,5 +43,15 @@ public class EnemyWeaponSlotManager : MonoBehaviour
         if (leftWeaponCollider == null) return;
 
         leftWeaponCollider.ToggleOffCollider();
+    }
+
+    public void SpawnProjectile()
+    {
+        bossManager.SpawnProjectile();
+    }
+
+    public void ThrowProjectile()
+    {
+        bossManager.ThrowProjectile();
     }
 }
