@@ -9483,7 +9483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageCollider: {fileID: 1082067337135217}
-  damage: 20
+  damage: 100
 --- !u!135 &1082067337135217
 SphereCollider:
   m_ObjectHideFlags: 0

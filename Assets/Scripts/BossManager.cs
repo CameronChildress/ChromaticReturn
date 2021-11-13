@@ -158,5 +158,7 @@ public class BossManager : MonoBehaviour
     {
         fireballClone.GetComponent<SphereCollider>().enabled = true;
         fireballClone.GetComponent<Rigidbody>().velocity = (fireballSpawnSpot.transform.position - enemyManager.currentTarget.transform.position).normalized * projectileSpeed;
+
+        Destroy(fireballClone, 10f);
     }
 }
