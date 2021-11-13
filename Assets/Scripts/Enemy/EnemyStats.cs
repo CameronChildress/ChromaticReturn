@@ -54,10 +54,14 @@ public class EnemyStats : CharacterStats
         {
             currentHealth = 0;
             playerStats.AddChromaOrbs(ChromaOrbsToGive);
-
-            //animator.Play("Dying");
+            enemyAnimatorManager.PlayTargetAnimation("death", true);
 
             enemyMovement.enabled = false;
+        }
+
+        if ((currentHealth <= 0 && bossManager.firstDeath == true))
+        {
+            WorldColorManager.Instance.OnChangeWorldProfile();
         }
     }
 }

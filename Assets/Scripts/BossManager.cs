@@ -62,7 +62,6 @@ public class BossManager : MonoBehaviour
             }
             else if (firstDeath == true)
             {
-                WorldColorManager.Instance.OnChangeWorldProfile();
                 Destroy(gameObject, 5f);
             }
         }

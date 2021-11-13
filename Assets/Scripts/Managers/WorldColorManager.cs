@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class WorldColorManager : MonoBehaviour
 {
     public List<VolumeProfile> allWorldVolumeProfiles = new List<VolumeProfile>();
-    int vpIndex = 0;
+    public int vpIndex = 0;
 
     public VolumeProfile vpAllGray;
     public VolumeProfile vpOnlyGreen;

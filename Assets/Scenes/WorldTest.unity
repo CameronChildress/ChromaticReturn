@@ -17398,6 +17398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawns: []
+  spawnTimer: 2
   enemySpawnRate: 3
   bossName: Knight Paul
   firstDeath: 0
@@ -71153,6 +71154,7 @@ MonoBehaviour:
   - {fileID: 1611877298}
   - {fileID: 1903110116}
   - {fileID: 770441566}
+  spawnTimer: 2
   enemySpawnRate: 1
   bossName: The Lost Light
   firstDeath: 0
@@ -80416,7 +80418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472084929888558293, guid: eae97ef6a377a9240a33d6ec94bff6cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3472084929888558315, guid: eae97ef6a377a9240a33d6ec94bff6cb, type: 3}
       propertyPath: m_RootOrder
