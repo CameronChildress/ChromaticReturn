@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpawnADS01
   m_EditorClassIdentifier: 
   actionAnimation: cast start
-  attackScore: 3
+  attackScore: 5
   recoveryTime: 5
   maximumAttackAngle: 35
   minimumAttackAngle: -35

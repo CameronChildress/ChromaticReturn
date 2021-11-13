@@ -94,7 +94,7 @@ public class BossManager : MonoBehaviour
                 if (enemiesSpawned == 4)
                 {
                     finishedSpawning = true;
-                    StopAllCoroutines();
+                    //StopAllCoroutines();
                 }
 
                 EnemyManager[] enemies = FindObjectsOfType<EnemyManager>();
@@ -131,15 +131,16 @@ public class BossManager : MonoBehaviour
 
     IEnumerator SpawnEnemyAfterTime()
     {
+        spawnTimer = 0;
         do
         {
             randomSpawn = Random.Range(0, spawns.Length);
-        } while (usedSpawns.Contains(spawns[randomSpawn]));
+            spawnTimer += Time.deltaTime;
+            yield return new WaitForSeconds(2f);
+        } while (usedSpawns.Contains(spawns[randomSpawn]) && spawnTimer <= 2);
 
         spawns[randomSpawn].SpawnEnemy();
         usedSpawns.Add(spawns[randomSpawn]);
         enemiesSpawned++;
-
-        yield return new WaitForSeconds(2f);
     }
 }
