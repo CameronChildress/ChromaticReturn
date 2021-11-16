@@ -11383,7 +11383,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 33
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -80042,6 +80042,10 @@ PrefabInstance:
     - target: {fileID: 1034307181558884401, guid: a3f88be6dea00ec4ca6e16805ef53762, type: 3}
       propertyPath: m_Name
       value: FXFireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034307181558884401, guid: a3f88be6dea00ec4ca6e16805ef53762, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3f88be6dea00ec4ca6e16805ef53762, type: 3}
