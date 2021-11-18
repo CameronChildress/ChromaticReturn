@@ -25,5 +25,7 @@ public class TransitionInteractable : Interactable
         playerMovement.rigidbody.velocity = Vector3.zero;
 
         SceneManager.LoadScene("BossArenaTest");
+        playerManager.transform.position = new Vector3(0, 1, -12);
+        GameManager.Instance.Save();
     }
 }

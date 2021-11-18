@@ -13,6 +13,8 @@ public class PlayerStats : CharacterStats
     public UIManager uiManager;
     public CurrencyHolder currencyHolder;
 
+    public int volumeProfileIndex;
+
     public int staminaLevel = 8;
     public float maxStamina;
     public float currentStamina;

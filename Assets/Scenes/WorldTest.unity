@@ -47276,12 +47276,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLevel: 10
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 100
+  currentHealth: 100
   healthBar: {fileID: 5249860486575201643}
   staminaBar: {fileID: 2319525545592031082}
   uiManager: {fileID: 5249860487233525636}
   currencyHolder: {fileID: 2319525544893836843}
+  volumeProfileIndex: 0
   staminaLevel: 8
   maxStamina: 0
   currentStamina: 0
@@ -78494,13 +78495,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3472084929888558292, guid: eae97ef6a377a9240a33d6ec94bff6cb, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a64ac12ae6f1f9429c430c487fb5192, type: 2}
     - target: {fileID: 3472084929888558293, guid: eae97ef6a377a9240a33d6ec94bff6cb, type: 3}
       propertyPath: m_Name
       value: Global Volume
       objectReference: {fileID: 0}
     - target: {fileID: 3472084929888558293, guid: eae97ef6a377a9240a33d6ec94bff6cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3472084929888558315, guid: eae97ef6a377a9240a33d6ec94bff6cb, type: 3}
       propertyPath: m_RootOrder
@@ -78668,6 +78673,10 @@ PrefabInstance:
     - target: {fileID: 6874392337300835380, guid: 40f110b399c425040bc1e2a682c9fcd4, type: 3}
       propertyPath: m_Name
       value: DemonBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874392337300835380, guid: 40f110b399c425040bc1e2a682c9fcd4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6874392337300835381, guid: 40f110b399c425040bc1e2a682c9fcd4, type: 3}
       propertyPath: m_RootOrder

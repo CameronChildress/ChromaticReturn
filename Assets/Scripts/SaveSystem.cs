@@ -36,4 +36,24 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static PlayerData FreshFile(PlayerStats playerStats)
+    {
+        string path = Application.persistentDataPath + "/playerStats.pS";
+        if (File.Exists(path))
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+
+            PlayerData playerData = binaryFormatter.Deserialize(fileStream) as PlayerData;
+            fileStream.Close();
+
+            return playerData;
+        }
+        else
+        {
+            Debug.LogFormat("Save File not found in " + path);
+            return null;
+        }
+    }
 }

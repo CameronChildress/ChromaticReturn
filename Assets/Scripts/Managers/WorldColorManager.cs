@@ -32,12 +32,17 @@ public class WorldColorManager : MonoBehaviour
         allWorldVolumeProfiles?.Add(vpGreenBlueRed);
         //allWorldVolumeProfiles?.Add(vpAllColor);
 
-        currentProfile = allWorldVolumeProfiles[0];
+        currentProfile = allWorldVolumeProfiles[vpIndex];
     }
 
     void Start()
     {
         globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+        globalVolume.profile = currentProfile;
+    }
+
+    private void Update()
+    {
         globalVolume.profile = currentProfile;
     }
 

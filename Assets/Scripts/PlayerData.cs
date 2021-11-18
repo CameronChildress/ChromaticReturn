@@ -17,6 +17,8 @@ public class PlayerData
     public float fadeInTimer;
     public float fadeOutTimer;
 
+    public int volumeProfileIndex;
+
     public PlayerData(PlayerStats playerStats)
     {
         position = new float[3];
@@ -32,5 +34,7 @@ public class PlayerData
         lostChromaOrbs = playerStats.lostOrbs;
         respawnTimer = playerStats.respawnTimer;
         orbsNeededToLevel = playerStats.orbsNeededToLevel;
+
+        volumeProfileIndex = WorldColorManager.Instance.vpIndex;
     }
 }

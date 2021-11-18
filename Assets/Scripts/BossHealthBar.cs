@@ -12,6 +12,8 @@ public class BossHealthBar : MonoBehaviour
     {
         slider = GetComponentInChildren<Slider>();
         bossName = GetComponentInChildren<Text>();
+
+        DontDestroyOnLoad(this);
     }
 
     private void Start()

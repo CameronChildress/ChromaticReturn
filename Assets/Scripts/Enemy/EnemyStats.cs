@@ -55,6 +55,7 @@ public class EnemyStats : CharacterStats
             currentHealth = 0;
             playerStats.AddChromaOrbs(ChromaOrbsToGive);
             enemyAnimatorManager.PlayTargetAnimation("death", true);
+            WorldColorManager.Instance.OnChangeWorldProfile();
 
             enemyMovement.enabled = false;
         }
