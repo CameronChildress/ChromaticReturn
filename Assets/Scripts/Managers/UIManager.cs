@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-    
+        DontDestroyOnLoad(this);
     }
 
     void Start()

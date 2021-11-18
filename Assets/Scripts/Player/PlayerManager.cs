@@ -21,7 +21,7 @@ public class PlayerManager : CharacterManager
 
     private void Awake()
     {
-        
+        DontDestroyOnLoad(this);
     }
 
     void Start()
