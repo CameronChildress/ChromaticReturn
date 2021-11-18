@@ -44,6 +44,8 @@ public class CameraManager : MonoBehaviour
         inputManager = FindObjectOfType<InputManager>();
         cameraTransform = Camera.main.transform;
         defaultPosition = cameraTransform.localPosition.z;
+
+        DontDestroyOnLoad(this);
     }
 
     void Update()

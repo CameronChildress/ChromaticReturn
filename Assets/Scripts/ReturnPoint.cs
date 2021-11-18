@@ -11,7 +11,6 @@ public class ReturnPoint : Interactable
     {
         base.Interact(playerManager);
 
-        //pick up weapon and add it to player inventory
         SetReturnPoint(playerManager);
     }
 
