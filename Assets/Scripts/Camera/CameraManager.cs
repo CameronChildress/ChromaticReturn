@@ -38,12 +38,24 @@ public class CameraManager : MonoBehaviour
 
     public GameObject lockOnPoint;
 
+    public static CameraManager Instance { get { return instance; } }
+    static CameraManager instance;
+
     void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        instance = this;
+
         //targetTransform = FindObjectOfType<PlayerManager>().transform;
         inputManager = FindObjectOfType<InputManager>();
         cameraTransform = Camera.main.transform;
         defaultPosition = cameraTransform.localPosition.z;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         DontDestroyOnLoad(this);
     }

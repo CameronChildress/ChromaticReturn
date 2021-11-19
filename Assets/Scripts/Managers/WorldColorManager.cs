@@ -24,6 +24,10 @@ public class WorldColorManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
         instance = this;
 
         allWorldVolumeProfiles?.Add(vpAllGray);

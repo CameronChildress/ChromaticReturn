@@ -13,12 +13,12 @@ public class BossHealthBar : MonoBehaviour
         slider = GetComponentInChildren<Slider>();
         bossName = GetComponentInChildren<Text>();
 
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     private void Start()
     {
-        SetHealthBarInActive();
+        //SetHealthBarInActive();
     }
 
     public void SetBossName(string name)

@@ -19,8 +19,16 @@ public class PlayerManager : CharacterManager
 
     public float respawnTimer = 2f;
 
+    public static PlayerManager Instance { get { return instance; } }
+    static PlayerManager instance;
+
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        instance = this;
         DontDestroyOnLoad(this);
     }
 

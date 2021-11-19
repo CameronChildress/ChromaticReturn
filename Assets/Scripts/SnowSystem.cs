@@ -10,7 +10,7 @@ public class SnowSystem : MonoBehaviour
 
     void Start()
     {
-        
+        targetObject = FindObjectOfType<PlayerManager>().gameObject;
     }
 
     void Update()

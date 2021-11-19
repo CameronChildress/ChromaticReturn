@@ -33,7 +33,10 @@ public static class SaveSystem
         else
         {
             Debug.LogFormat("Save File not found in " + path);
-            return null;
+
+            PlayerData playerData = new PlayerData(PlayerManager.Instance.gameObject.GetComponent<PlayerStats>());
+            SavePlayer(PlayerManager.Instance.gameObject.GetComponent<PlayerStats>());
+            return playerData;
         }
     }
 

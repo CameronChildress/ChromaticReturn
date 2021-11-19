@@ -240,18 +240,14 @@ public class InputManager : MonoBehaviour
 
     void HandleInventoryInput()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
         if (inventoryInput)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
             inventoryFlag = !inventoryFlag;
 
             if (inventoryFlag)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 uiManager.OpenSelectWindow();
                 uiManager.UpdateUI();
 
@@ -260,6 +256,8 @@ public class InputManager : MonoBehaviour
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 uiManager.CloseSelectWindow();
                 uiManager.CloseAllInventoryWindows();
 
@@ -274,9 +272,6 @@ public class InputManager : MonoBehaviour
 
     void HandleRestingMenuInput()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
         restingFlag = !restingFlag;
 
         if (restingFlag)
