@@ -89,6 +89,7 @@ public class PlayerStats : CharacterStats
             if (fadeTimer >= 5)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                GameManager.Instance.Load();
             }
         }
         else
