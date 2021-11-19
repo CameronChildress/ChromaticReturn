@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
-using UnityEditor.Rendering.PostProcessing;
 using UnityEngine.AI;
 
 public class EnemyManager : CharacterManager
