@@ -28,7 +28,11 @@ public class WorldColorManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        instance = this;
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
 
         allWorldVolumeProfiles?.Add(vpAllGray);
         allWorldVolumeProfiles?.Add(vpOnlyGreen);

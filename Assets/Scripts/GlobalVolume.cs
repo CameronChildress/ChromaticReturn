@@ -13,6 +13,10 @@ public class GlobalVolume : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        instance = this;
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 }

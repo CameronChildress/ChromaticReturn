@@ -28,8 +28,11 @@ public class PlayerManager : CharacterManager
         {
             Destroy(gameObject);
         }
-        instance = this;
-        DontDestroyOnLoad(this);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 
     void Start()

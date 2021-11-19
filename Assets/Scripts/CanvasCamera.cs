@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class CanvasCamera : MonoBehaviour
 {
-    void Start()
+    public static CanvasCamera Instance { get { return instance; } }
+    static CanvasCamera instance;
+
+    private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 }

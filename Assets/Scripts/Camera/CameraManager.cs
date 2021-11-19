@@ -47,7 +47,11 @@ public class CameraManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        instance = this;
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
 
         //targetTransform = FindObjectOfType<PlayerManager>().transform;
         inputManager = FindObjectOfType<InputManager>();
@@ -56,8 +60,6 @@ public class CameraManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        DontDestroyOnLoad(this);
     }
 
     void Update()

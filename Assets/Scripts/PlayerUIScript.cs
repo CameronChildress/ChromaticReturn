@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventSystemScript : MonoBehaviour
+public class PlayerUIScript : MonoBehaviour
 {
-    public static EventSystemScript Instance { get { return instance; } }
-    static EventSystemScript instance; 
+    public static PlayerUIScript Instance { get { return instance; } }
+    static PlayerUIScript instance;
 
     private void Awake()
     {
