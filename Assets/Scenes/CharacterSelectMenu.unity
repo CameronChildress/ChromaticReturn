@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 004e725a16358824a84caf40de9f4fe0, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -564,6 +564,83 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 142034, guid: b81ba67e44b1b174d9ef4491f146ee35, type: 3}
   m_PrefabInstance: {fileID: 448537399}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &528772780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6344482311773758401, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 528772781}
+    - target: {fileID: 6344482311773758402, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_Name
+      value: SceneTransitions
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344482311773758403, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+--- !u!95 &528772781 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6344482311773758400, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+  m_PrefabInstance: {fileID: 528772780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &528772782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6344482311773758401, guid: 2656ec95b9a34d04bbc69b65dae57e16, type: 3}
+  m_PrefabInstance: {fileID: 528772780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492a9d8ad17e4284a93e45fe8e3eb62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &599392169
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +734,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 528772782}
+        m_TargetAssemblyTypeName: SceneTransitions, Assembly-CSharp
+        m_MethodName: FadeToLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WorldTest
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &599392172

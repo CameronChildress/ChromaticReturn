@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStats : CharacterStats
 {
@@ -8,6 +9,7 @@ public class EnemyStats : CharacterStats
     PlayerStats playerStats;
     BossManager bossManager;
     EnemyAnimatorManager enemyAnimatorManager;
+    NavMeshAgent navMeshAgent;
 
     public HealthBar healthBar;
 
@@ -22,6 +24,7 @@ public class EnemyStats : CharacterStats
         enemyMovement = GetComponent<EnemyMovement>();
         bossManager = GetComponent<BossManager>();
         enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
+        navMeshAgent = GetComponentInChildren<NavMeshAgent>();
 
         maxHealth = SetMaxHealthFromHealthLevel();
         currentHealth = maxHealth;
@@ -40,28 +43,28 @@ public class EnemyStats : CharacterStats
 
     public void TakeDamage(int damage)
     {
+        enemyAnimatorManager.PlayTargetAnimation("Hurt", true, false);
         currentHealth -= damage;
         healthBar.SetCurrentHealth(currentHealth);
 
-        //animator.Play("Hurt");
-
-        if (currentHealth <= 0)
-        {
-            enemyAnimatorManager.PlayTargetAnimation("death", true);
-        }
+        //if (currentHealth <= 0)
+        //{
+        //    enemyAnimatorManager.PlayTargetAnimation("Dying", true);
+        //}
 
         //if ((currentHealth <= 0 && bossManager.firstDeath == true) || (currentHealth <= 0 && gameObject.tag == "Enemy"))
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             playerStats.AddChromaOrbs(ChromaOrbsToGive);
-            enemyAnimatorManager.PlayTargetAnimation("death", true);
+            navMeshAgent.enabled = false;
+            enemyAnimatorManager.PlayTargetAnimation("Dying", true);
             WorldColorManager.Instance.OnChangeWorldProfile();
 
             enemyMovement.enabled = false;
         }
-
-        if ((currentHealth <= 0 && bossManager.firstDeath == true))
+        
+        if ((currentHealth <= 0 && bossManager?.firstDeath == true))
         {
             WorldColorManager.Instance.OnChangeWorldProfile();
         }

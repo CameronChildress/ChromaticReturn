@@ -12,6 +12,7 @@ public class PlayerStats : CharacterStats
     public StaminaBar staminaBar;
     public UIManager uiManager;
     public CurrencyHolder currencyHolder;
+    public AnimatorManager animatorManager;
 
     public int volumeProfileIndex;
 
@@ -51,6 +52,8 @@ public class PlayerStats : CharacterStats
 
     void Start()
     {
+        animatorManager = GetComponentInChildren<AnimatorManager>();
+
         if (firstLoaded)
         {
             fadeTimer = 0;
@@ -76,6 +79,7 @@ public class PlayerStats : CharacterStats
 
         if (currentHealth <= 0)
         {
+            //animatorManager.PlayTargetAnimation("Dying", true);
             respawnTimer -= Time.deltaTime;
             fadeTimer += Time.deltaTime;
             fadeTimer = Mathf.Clamp(fadeTimer, 0, 5);
@@ -136,6 +140,7 @@ public class PlayerStats : CharacterStats
 
     public void TakeDamage(int damage)
     {
+        animatorManager.PlayTargetAnimation("Hurt", true);
         currentHealth -= damage;
         healthBar.SetCurrentHealth(currentHealth);
 
