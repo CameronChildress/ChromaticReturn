@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c3973fdea8ba54b9e1c3e799d58718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentOverride: {fileID: 0}
+  parentOverride: {fileID: 270514644937637885}
   isLeftHandSlot: 1
   isRightHandSlot: 0
   currentWeaponObject: {fileID: 0}
