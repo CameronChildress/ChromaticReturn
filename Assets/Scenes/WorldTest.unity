@@ -4795,7 +4795,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterModels:
-  - {fileID: 9197915206703695844, guid: 5d018627d574a444c971c479a6f5e604, type: 3}
   - {fileID: 5189797590333739211, guid: 108400984dfc5bc40a1582eaf182debf, type: 3}
   - {fileID: 2334564790972322923, guid: 30aa15bd36f6c00459970918b0d678e0, type: 3}
   - {fileID: 5505405239598929688, guid: b463726f39f25ee4ca72be99cab717ef, type: 3}

@@ -975,5 +975,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 9197915206703695844, guid: 5d018627d574a444c971c479a6f5e604, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d018627d574a444c971c479a6f5e604, type: 3}
