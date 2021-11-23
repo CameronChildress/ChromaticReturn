@@ -14,12 +14,16 @@ public class PlayerStats : CharacterStats
     public CurrencyHolder currencyHolder;
     public AnimatorManager animatorManager;
 
+    public Transform deathTransform;
+    public Vector3 deathPosition;
+    public GameObject droppedOrbs;
+
     public int volumeProfileIndex;
 
     public int staminaLevel = 8;
     public float maxStamina;
     public float currentStamina;
-    public float staminaTimer = 3f;
+    public float staminaTimer = 1.5f;
 
     public int ChromaOrbsObtained = 0;
     public int lostOrbs = 0;
@@ -80,6 +84,9 @@ public class PlayerStats : CharacterStats
         if (currentHealth <= 0)
         {
             //animatorManager.PlayTargetAnimation("Dying", true);
+
+            deathPosition = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
+
             respawnTimer -= Time.deltaTime;
             fadeTimer += Time.deltaTime;
             fadeTimer = Mathf.Clamp(fadeTimer, 0, 5);
@@ -94,6 +101,11 @@ public class PlayerStats : CharacterStats
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 GameManager.Instance.Load();
+
+                lostOrbs = ChromaOrbsObtained;
+                ChromaOrbsObtained = 0;
+
+                SceneManager.sceneLoaded += OnSceneLoaded;
             }
         }
         else
@@ -125,6 +137,12 @@ public class PlayerStats : CharacterStats
 
         healthBar.SetCurrentHealth(currentHealth);
     }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameObject droppedOrbsClone = Instantiate(droppedOrbs, deathPosition, Quaternion.identity);
+    }
+
 
     float SetMaxHealthFromHealthLevel()
     {
@@ -164,7 +182,7 @@ public class PlayerStats : CharacterStats
         }
         staminaBar.SetCurrentStamina(currentStamina);
 
-        staminaTimer = 3f;
+        staminaTimer = 1.5f;
     }
 
     public void ReturnStamina(float stamina)

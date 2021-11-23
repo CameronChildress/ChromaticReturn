@@ -26,6 +26,8 @@ public class ReturnPoint : Interactable
         playerMovement.rigidbody.velocity = Vector3.zero;
 
         uiManager.RestMenuScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         inputManager.restingFlag = true;
 
