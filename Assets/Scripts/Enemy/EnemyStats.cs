@@ -59,8 +59,6 @@ public class EnemyStats : CharacterStats
             playerStats.AddChromaOrbs(ChromaOrbsToGive);
             navMeshAgent.enabled = false;
             enemyAnimatorManager.PlayTargetAnimation("Dying", true);
-            WorldColorManager.Instance.OnChangeWorldProfile();
-
             enemyMovement.enabled = false;
         }
         

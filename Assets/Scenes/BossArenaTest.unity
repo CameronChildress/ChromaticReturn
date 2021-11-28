@@ -77601,6 +77601,7 @@ GameObject:
   - component: {fileID: 7171515054411001053}
   - component: {fileID: 7171515054411001042}
   - component: {fileID: 7171515054411001041}
+  - component: {fileID: 7171515054411001050}
   m_Layer: 10
   m_Name: DemonBoss
   m_TagString: Boss
@@ -77608,6 +77609,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7171515054411001050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171515054411001049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01197a29569a3134198e6510d881904b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7171515054411001052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77635,7 +77648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a5733349b6efb4582e038771d4f832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthLevel: 35
+  healthLevel: 10
   maxHealth: 0
   currentHealth: 0
   healthBar: {fileID: 7171515054411001041}
